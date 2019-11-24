@@ -21,9 +21,7 @@ function turnOn() {
         tplink.getDeviceList().then(deviceList => {
             console.log(deviceList);
             tplink.getHS100('Christmas Lights').powerOn().then(myPlug => {
-                myPlug.getRelayState().then(state => {
-                    console.log(state);  
-                });
+                console.log("Just a thing so it doesn't crash");
             });
         });
     });
@@ -34,9 +32,7 @@ function turnOff() {
         tplink.getDeviceList().then(deviceList => {
             console.log(deviceList);
             tplink.getHS100('Christmas Lights').powerOff().then(myPlug => {
-                myPlug.getRelayState().then(state => {
-                    console.log(state);  
-                });
+                console.log("Just a thing so it doesn't crash");
             });
         });
     });

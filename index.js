@@ -7,7 +7,9 @@ app.get('/', (req, res) => {
 });
 
 app.get('/on', (req, res) => {
-    tplink.turnOn();
+    tplink.turnOn().then( () => {
+        res.send("On");
+    });
 });
 
 app.get('/toggle', (req, res) => {
@@ -15,7 +17,9 @@ app.get('/toggle', (req, res) => {
 });
 
 app.get('/off', (req, res) => {
-    tplink.turnOff();
+    tplink.turnOff().then( () => {
+        res.send("Off");
+    });
 });
 
 app.listen(8000, () => {

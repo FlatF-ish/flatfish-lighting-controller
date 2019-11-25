@@ -2,8 +2,14 @@ const express = require('express');
 const tplink = require('./tplink.js');
 const app = express();
 
+const fs = require('fs');
+const path = require('path');
+
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
-    res.send('Hello world');
+    var file = fs.readFileSync(process.cwd()+'/lighting.html').toString();
+    res.send(file);
 });
 
 app.get('/on', (req, res) => {

@@ -13,7 +13,9 @@ app.get('/on', (req, res) => {
 });
 
 app.get('/toggle', (req, res) => {
-    tplink.toggle();
+    tplink.toggle().then(() => {
+        res.send("Toggled");
+    });
 });
 
 app.get('/off', (req, res) => {

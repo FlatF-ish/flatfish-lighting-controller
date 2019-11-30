@@ -8,6 +8,8 @@ const path = require('path');
 
 app.use(express.static('public'));
 
+app.use('/favicon.ico', express.static('images/favicon.ico'));
+
 app.get('/', (req, res) => {
     var file = fs.readFileSync(process.cwd()+'/lighting.html').toString();
     res.send(file);

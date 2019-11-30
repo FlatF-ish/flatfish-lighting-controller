@@ -35,7 +35,6 @@ app.get('/status', (req, res) => {
         res.send(`Status: ${status}`);
         console.log(status);
     })
-
 });
 
 app.listen(8000, () => {

@@ -10,7 +10,8 @@ function toggle() {
                 tplink.getHS100('Christmas Lights').toggle().then(something => {
                     let myPlug = tplink.getHS100("Christmas Lights")
                     myPlug.getRelayState().then(state => {
-                        console.log(state);  
+                        console.log(state);
+                        accept(state);
                     })
                 })
             })

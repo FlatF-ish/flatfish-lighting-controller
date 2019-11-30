@@ -41,12 +41,30 @@ app.get('/status', (req, res) => {
 app.use('/api', bodyParser.json());
 
 app.post('/api', (req, res) => {
-    if (req.body.type === "setState") {
-        // on or off
-    } else if (req.body.type === "toggle") {
-        tplink.toggle();
-    } else if (req.body.type === "status") {
-        tplink.getStatus();
+    switch(req.body.type) {
+        case "on": 
+            tplink.turnOn().then(() => { 
+                res.status(200).send("Lights turned on"); 
+            });
+            break;
+        case "off": 
+            tplink.turnOff().then(() => { 
+                res.status(200).send("Lights turned off"); 
+            });
+            break;
+        case "toggle": 
+            tplink.toggle().then((status) => { 
+                res.status(200).send(status ? "Lights turned on" : "Lights turned off"); 
+            });
+            break;
+        case "status": 
+            tplink.getStatus().then(status => { 
+                res.status(200).send("Lights status: " + status); 
+            });
+            break;
+        default:
+            res.status(400).send("Invalid type");
+            break;
     }
 });
 

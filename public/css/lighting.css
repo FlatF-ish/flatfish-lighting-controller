@@ -102,7 +102,7 @@ body {
 
 
 
-#light-four {
+.light-four {
     fill: #ffff00;
     animation-name: bulb;
     animation-delay: 3s;
@@ -110,7 +110,7 @@ body {
     animation-iteration-count: infinite;
 }
 
-#light-one {
+.light-one {
     fill: #ffff00;
     animation-name: bulb;
     animation-delay: 2s;
@@ -118,7 +118,7 @@ body {
     animation-iteration-count: infinite;
 }
 
-#light-two {
+.light-two {
     fill: #ffff00;
     animation-name: bulb;
     animation-delay: 1s;
@@ -126,7 +126,7 @@ body {
     animation-iteration-count: infinite;
 }
 
-#light-three {
+.light-three {
     fill: #ffff00;
     animation-name: bulb;
     animation-delay: 0s;

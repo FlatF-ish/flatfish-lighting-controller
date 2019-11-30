@@ -83,6 +83,14 @@ body {
     border: 2px solid #d1bee6;
 }
 
+.disabled {
+    opacity: 0.5;
+}
+
+.disabled:hover {
+    cursor: default;
+}
+
 .content {
     background-color: #4d4654;
     text-align: center;

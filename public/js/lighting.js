@@ -42,12 +42,20 @@ function styleForOff() {
 }
 
 function waitForResponse() {
+    document.getElementById('on-state').classList.add('inactive');
+    document.getElementById('off-state').classList.add('inactive');
+    document.getElementById('on-state').classList.add('disabled');
+    document.getElementById('off-state').classList.add('disabled');
     document.getElementById('on-state').disabled = true;
     document.getElementById('off-state').disabled = true;
     loadAnimation();
 }
 
 function onResponseReceived() {
+    document.getElementById('on-state').classList.remove('inactive');
+    document.getElementById('off-state').classList.remove('inactive');
+    document.getElementById('on-state').classList.remove('disabled');
+    document.getElementById('off-state').classList.remove('disabled');
     document.getElementById('on-state').disabled = false;
     document.getElementById('off-state').disabled = false;
     removeAnimation();

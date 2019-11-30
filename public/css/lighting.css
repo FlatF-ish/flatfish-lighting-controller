@@ -46,15 +46,20 @@ body {
     margin: 0 16px 0 16px;
 }
 
+.button:active {
+    outline: none;
+    border: none;
+}
+
 .on {
-    color: #7cb54a;
+    color: #63586e;
+    background-color: #7cb54a;
     border: 2px solid #7cb54a;
-    background-color: #63586e;
 }
 
 .off {
-    color: #c23529;
-    background-color: #63586e;
+    color: #63586e;
+    background-color: #c23529;
     border: 2px solid #c23529;
 }
 

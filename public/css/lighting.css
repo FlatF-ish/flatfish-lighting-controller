@@ -57,12 +57,12 @@ span {
     background-color: #63586e;
 }
 
-.on:hover
+/* .on:hover
 {
     color: #63586e;
     background-color: #7cb54a;
 
-}
+} */
 
 .off {
     color: #c23529;
@@ -70,11 +70,16 @@ span {
     border: 2px solid #c23529;
 }
 
-.off:hover
+.inactive {
+    color: #d1bee6;
+    border: 2px solid #d1bee6;
+}
+
+/* .off:hover
 {
     color: #63586e;
     background-color: #c23529;
-}
+} */
 
 .content {
     background-color: #4d4654;

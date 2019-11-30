@@ -1,3 +1,5 @@
+var disableStatusUpdate = false;
+
 document.addEventListener('readystatechange', event => {
     if(event.target.readyState === "complete") {
         getStatus();                    
@@ -6,17 +8,21 @@ document.addEventListener('readystatechange', event => {
 });
 
 function turnOn() {
-    var xhttp = new XMLHttpRequest();
+    disableStatusUpdate = true;
+    waitForResponse();
+    const xhttp = new XMLHttpRequest();
     xhttp.open("GET", "http://flatfish.online:49161/on", true);
     xhttp.send();
-    waitForResponse();
+    disableStatusUpdate = false;
 }
 
 function turnOff() {
-    var xhttp = new XMLHttpRequest();
+    disableStatusUpdate = true;
+    waitForResponse();
+    const xhttp = new XMLHttpRequest();
     xhttp.open("GET", "http://flatfish.online:49161/off", true);
     xhttp.send();
-    waitForResponse();
+    disableStatusUpdate = false;
 }
 
 function styleForOn() {
@@ -79,9 +85,9 @@ function removeAnimation() {
 }
 
 function getStatus() {
-    var xhttp = new XMLHttpRequest();
+    const xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
-        if(this.readyState === 4 && this.status === 200) {
+        if(this.readyState === 4 && this.status === 200 && !disableStatusUpdate) {
             if(this.responseText === 'on') {
                 onResponseReceived();
                 styleForOn();

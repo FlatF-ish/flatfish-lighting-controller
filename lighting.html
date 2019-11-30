@@ -19,7 +19,6 @@
             }
 
             function getStatus() {
-                setTimeout(1000);
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function() {
                     if(this.readyState === 4 && this.status === 200)
@@ -35,6 +34,7 @@
 
             document.addEventListener('readystatechange', event => {
                 if(event.target.readyState === "complete"){
+                    setInterval(getStatus, 1000);
                     getStatus();
                 }
             });

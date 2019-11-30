@@ -64,13 +64,13 @@ body {
 .on {
     color: #63586e;
     background-color: #7cb54a;
-    border: 2px solid #7cb54a;
+    border: 2px solid #3b5821;
 }
 
 .off {
     color: #63586e;
     background-color: #c23529;
-    border: 2px solid #c23529;
+    border: 2px solid #751e16;
 }
 
 .inactive {

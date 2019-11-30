@@ -89,21 +89,20 @@ body {
     box-sizing: border-box;
 }
 
-#Icons_Lightbulb {
+#lightbulb-icon {
     fill: #ffffff;
     max-height: 40%;
-    animation-name: bulb;
-    animation-duration: 4s;
 }
 
+#lightbulb-icon-on {
+    fill: #ffffff;
+}
 
-
-
-
-
+#lightbulb-icon-off {
+    fill: #ffffff;
+}
 
 .light-four {
-    fill: #ffff00;
     animation-name: bulb;
     animation-delay: 3s;
     animation-duration: 5s;
@@ -111,7 +110,6 @@ body {
 }
 
 .light-one {
-    fill: #ffff00;
     animation-name: bulb;
     animation-delay: 2s;
     animation-duration: 5s;
@@ -119,7 +117,6 @@ body {
 }
 
 .light-two {
-    fill: #ffff00;
     animation-name: bulb;
     animation-delay: 1s;
     animation-duration: 5s;
@@ -127,7 +124,6 @@ body {
 }
 
 .light-three {
-    fill: #ffff00;
     animation-name: bulb;
     animation-delay: 0s;
     animation-duration: 5s;

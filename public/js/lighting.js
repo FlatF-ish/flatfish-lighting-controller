@@ -25,6 +25,9 @@ function styleForOn() {
     document.getElementById('on-state').classList.remove('inactive');
     document.getElementById('on-state').classList.add('on');
     document.getElementById('js-status').innerHTML = "on";
+
+    document.getElementById('lightbulb-icon').classList.remove('off');
+    document.getElementById('lightbulb-icon').classList.add('lightbulb-icon-off');
 }
 
 function styleForOff() {
@@ -33,6 +36,9 @@ function styleForOff() {
     document.getElementById('off-state').classList.add('off');
     document.getElementById('off-state').classList.remove('inactive');
     document.getElementById('js-status').innerHTML = "off";
+
+    document.getElementById('lightbulb-icon').classList.remove('lightbulb-icon-on');
+    document.getElementById('lightbulb-icon').classList.add('lightbulb-icon-off');
 }
 
 function waitForResponse() {
@@ -66,11 +72,11 @@ function getStatus() {
     xhttp.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200) {
             if(this.responseText === 'on') {
+                onResponseReceived();
                 styleForOn();
-                onResponseReceived();
             } else if (this.responseText === 'off') {
-                styleForOff();
                 onResponseReceived();
+                styleForOff();
             }
         }
     }

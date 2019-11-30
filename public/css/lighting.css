@@ -99,14 +99,15 @@ body {
 }
 
 #lightbulb-icon-on {
-    fill: #ffffff;
+    fill: #7cb54a;
 }
 
 #lightbulb-icon-off {
-    fill: #ffffff;
+    fill: #c23529;
 }
 
 .light-four {
+    fill: #ffff00;
     animation-name: bulb;
     animation-delay: 3s;
     animation-duration: 5s;
@@ -114,6 +115,7 @@ body {
 }
 
 .light-one {
+    fill: #ffff00;
     animation-name: bulb;
     animation-delay: 2s;
     animation-duration: 5s;
@@ -121,6 +123,7 @@ body {
 }
 
 .light-two {
+    fill: #ffff00;
     animation-name: bulb;
     animation-delay: 1s;
     animation-duration: 5s;
@@ -128,6 +131,7 @@ body {
 }
 
 .light-three {
+    fill: #ffff00;
     animation-name: bulb;
     animation-delay: 0s;
     animation-duration: 5s;

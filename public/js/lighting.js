@@ -26,8 +26,8 @@ function styleForOn() {
     document.getElementById('on-state').classList.add('on');
     document.getElementById('js-status').innerHTML = "on";
 
-    document.getElementById('lightbulb-icon').classList.remove('off');
-    document.getElementById('lightbulb-icon').classList.add('lightbulb-icon-off');
+    document.getElementById('lightbulb-icon').classList.remove('lightbulb-icon-off');
+    document.getElementById('lightbulb-icon').classList.add('lightbulb-icon-on');
 }
 
 function styleForOff() {
@@ -72,11 +72,11 @@ function getStatus() {
     xhttp.onreadystatechange = function() {
         if(this.readyState === 4 && this.status === 200) {
             if(this.responseText === 'on') {
-                onResponseReceived();
                 styleForOn();
-            } else if (this.responseText === 'off') {
                 onResponseReceived();
+            } else if (this.responseText === 'off') {
                 styleForOff();
+                onResponseReceived();
             }
         }
     }

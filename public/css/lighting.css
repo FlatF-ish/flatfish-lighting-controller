@@ -93,40 +93,39 @@ body {
     box-sizing: border-box;
 }
 
-#lightbulb-icon {
-    fill: #ffffff;
-    max-height: 40%;
-}
-
-#lightbulb-icon-on {
+.lightbulb-icon-on {
     fill: #7cb54a;
 }
 
-#lightbulb-icon-off {
+.lightbulb-icon-off {
     fill: #c23529;
+}
+
+#lightbulb-icon {
+    max-height: 40%;
 }
 
 .light-four {
     fill: #ffff00;
     animation-name: bulb;
-    animation-delay: 3s;
-    animation-duration: 5s;
+    animation-delay: 0.3s;
+    animation-duration: 0.5s;
     animation-iteration-count: infinite;
 }
 
 .light-one {
     fill: #ffff00;
     animation-name: bulb;
-    animation-delay: 2s;
-    animation-duration: 5s;
+    animation-delay: 0.2s;
+    animation-duration: 0.5s;
     animation-iteration-count: infinite;
 }
 
 .light-two {
     fill: #ffff00;
     animation-name: bulb;
-    animation-delay: 1s;
-    animation-duration: 5s;
+    animation-delay: 0.1s;
+    animation-duration: 0.5s;
     animation-iteration-count: infinite;
 }
 
@@ -134,7 +133,7 @@ body {
     fill: #ffff00;
     animation-name: bulb;
     animation-delay: 0s;
-    animation-duration: 5s;
+    animation-duration: 0.5s;
     animation-iteration-count: infinite;
 }
 

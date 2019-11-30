@@ -20,6 +20,7 @@ app.get('/on', (req, res) => {
 
 app.get('/toggle', (req, res) => {
     tplink.toggle().then(() => {
+        console.log("toggled");
         res.send("Toggled");
     });
 });
@@ -32,12 +33,10 @@ app.get('/off', (req, res) => {
 
 app.get('/status', (req, res) => {
     tplink.getStatus().then((status) => {
-        res.send(`Status: ${status}`);
-        console.log(status);
+        res.send(`${status}`);
     })
 });
 
 app.listen(8000, () => {
     console.log('Example app listening on port 8000!');
-    // tplink.lighting();
 })

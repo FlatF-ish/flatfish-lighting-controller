@@ -7,8 +7,8 @@ function toggle() {
     return new Promise(function(accept, reject){
         login(myUser, myPass).then( tplink => {
             tplink.getDeviceList().then(deviceList => {
-                console.log(deviceList);
-                tplink.getHS100('Christmas Lights').toggle().then(myPlug => {
+                tplink.getHS100('Christmas Lights').toggle().then(something => {
+                    let myPlug = tplink.getHS100("Christmas Lights")
                     myPlug.getRelayState().then(state => {
                         console.log(state);  
                     })
@@ -50,11 +50,17 @@ async function getStatus() {
     return new Promise(async function(accept, reject){
         login(myUser, myPass).then( tplink => {
             tplink.getDeviceList().then(deviceList => {
-                console.log(deviceList);
-                let state = tplink.getHS100('Christmas Lights').getRelayState().then(() => {
-                    console.log(state);
-                    return state;
-                });
+                let myPlug = tplink.getHS100("Christmas Lights");
+                myPlug.isOn().then((val) => {
+                    if(val === true)
+                    {
+                        console.log("On");
+                        accept("on");
+                    } else {
+                        console.log("Off");
+                        accept("off");
+                    }
+                })
             });
         });
     });

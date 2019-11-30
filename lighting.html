@@ -5,15 +5,36 @@
         <link rel="stylesheet" type="text/css" href="css/lighting.css">
         <script>
             function turnOn() {
+                console.log("hi");
                 var xhttp = new XMLHttpRequest();
                 xhttp.open("GET", "http://flatfish.online:49161/on", true);
                 xhttp.send();
+                getStatus();
             }
 
             function turnOff() {
+                console.log("hi");
                 var xhttp = new XMLHttpRequest();
                 xhttp.open("GET", "http://flatfish.online:49161/off", true);
                 xhttp.send();
+                getStatus();
+            }
+
+            function getStatus() {
+                setTimeout(1000);
+                var xhttp = new XMLHttpRequest();
+                console.log("hi");
+                xhttp.onreadystatechange = function() {
+                    if(this.readyState === 4 && this.status === 200)
+                    {
+                        document.getElementById('js-status').innerHTML = this.responseText;
+                    } else {
+                        document.getElementById('js-status').innerHTML = this.statusText;
+                    }
+                }
+                xhttp.open("GET", "http://flatfish.online:49161/status", true);
+                xhttp.send();
+
             }
         </script>
     </head>
@@ -24,7 +45,8 @@
                 <h1 class="heading">Control the lights</h1>
                 <p class="sub-heading">One day it might even say what the current state of the lights is - but not today</p>
             </div>
-            <div class="bottom">               
+            <div class="bottom">   
+                <div>Status: <span id="js-status"></span></div>            
                 <button onclick="turnOn()" class="button on">On</a>
                 <button onclick="turnOff()" class="button off">Off</a>
             </div>

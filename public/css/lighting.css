@@ -50,17 +50,12 @@ body {
     cursor: pointer;
 }
 
-.button:on {
+.button:active {
     outline: none;
     border: none;
 }
 
-.button:off {
-    outline: none;
-    border: none;
-}
-
-.button:inactive {
+.button:focus {
     outline: none;
     border: none;
 }

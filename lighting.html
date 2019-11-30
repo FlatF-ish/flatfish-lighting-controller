@@ -21,11 +21,8 @@
             function getStatus() {
                 var xhttp = new XMLHttpRequest();
                 xhttp.onreadystatechange = function() {
-                    if(this.readyState === 4 && this.status === 200)
-                    {
+                    if(this.readyState === 4 && this.status === 200) {
                         document.getElementById('js-status').innerHTML = this.responseText;
-                    } else {
-                        document.getElementById('js-status').innerHTML = this.statusText;
                     }
                 }
                 xhttp.open("GET", "http://flatfish.online:49161/status", true);
@@ -33,7 +30,7 @@
             }
 
             document.addEventListener('readystatechange', event => {
-                if(event.target.readyState === "complete"){
+                if(event.target.readyState === "complete") {
                     setInterval(getStatus, 1000);
                     getStatus();
                 }

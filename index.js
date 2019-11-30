@@ -1,10 +1,12 @@
+require('dotenv').config();
+
 const express = require('express');
 const tplink = require('./tplink.js');
 const bodyParser = require('body-parser');
-const app = express();
-
 const fs = require('fs');
 const path = require('path');
+
+const app = express();
 
 app.use(express.static('public'));
 

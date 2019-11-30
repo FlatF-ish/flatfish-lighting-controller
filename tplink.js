@@ -1,7 +1,6 @@
-const myUser = "joshuaquarryhouse@gmail.com";
-const myPass = "password"
+const myUser = process.env.TP_LINK_USER;
+const myPass = process.env.TP_LINK_PASSWORD;
 const { login } = require("tplink-cloud-api")
-// const tplink = await login("joshuaquarryhouse@gmail.com", "password");
 
 function toggle() {
     return new Promise(function(accept, reject){

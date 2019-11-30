@@ -39,6 +39,7 @@ app.get('/status', (req, res) => {
 });
 
 app.use('/api', bodyParser.json());
+app.use('/favicon.ico', express.static('./public/images/bulb.ico'));
 
 app.post('/api', (req, res) => {
     switch(req.body.type) {

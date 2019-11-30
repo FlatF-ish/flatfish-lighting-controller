@@ -11,18 +11,27 @@ function turnOn() {
     disableStatusUpdate = true;
     waitForResponse();
     const xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+        if(this.readyState === 4 && this.status === 200) {
+            disableStatusUpdate = false;
+        }
+    }
     xhttp.open("GET", "http://flatfish.online:49161/on", true);
     xhttp.send();
-    disableStatusUpdate = false;
 }
 
 function turnOff() {
     disableStatusUpdate = true;
     waitForResponse();
     const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if(this.readyState === 4 && this.status === 200) {
+            disableStatusUpdate = false;
+        }
+    }
     xhttp.open("GET", "http://flatfish.online:49161/off", true);
     xhttp.send();
-    disableStatusUpdate = false;
 }
 
 function styleForOn() {

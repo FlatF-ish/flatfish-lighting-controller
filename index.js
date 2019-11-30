@@ -30,6 +30,14 @@ app.get('/off', (req, res) => {
     });
 });
 
+app.get('/status', (req, res) => {
+    tplink.getStatus().then((status) => {
+        res.send(`Status: ${status}`);
+        console.log(status);
+    })
+
+});
+
 app.listen(8000, () => {
     console.log('Example app listening on port 8000!');
     // tplink.lighting();

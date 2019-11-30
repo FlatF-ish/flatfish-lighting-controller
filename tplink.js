@@ -46,6 +46,20 @@ function turnOff() {
     });
 }
 
+async function getStatus() {
+    return new Promise(async function(accept, reject){
+        login(myUser, myPass).then( tplink => {
+            tplink.getDeviceList().then(deviceList => {
+                console.log(deviceList);
+                let state = tplink.getHS100('Christmas Lights').getRelayState().then(() => {
+                    console.log(state);
+                    return state;
+                });
+            });
+        });
+    });
+}
+
 // function turnOn()
 // {
 //     logMeIn().then( tplink => {
@@ -61,4 +75,4 @@ function turnOff() {
 //     });
 // }
 
-module.exports = {turnOn: turnOn, turnOff: turnOff, toggle: toggle}
+module.exports = {turnOn: turnOn, turnOff: turnOff, toggle: toggle, getStatus: getStatus}

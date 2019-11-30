@@ -36,7 +36,11 @@
                 }
             }
 
-            getStatus();
+            document.addEventListener('readystatechange', event => {
+                if(event.target.readyState === "complete"){
+                    getStatus();
+                }
+            });
 
         </script>
     </head>

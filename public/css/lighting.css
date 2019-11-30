@@ -88,3 +88,60 @@ body {
     margin: auto;
     box-sizing: border-box;
 }
+
+#Icons_Lightbulb {
+    fill: #ffffff;
+    max-height: 40%;
+    animation-name: bulb;
+    animation-duration: 4s;
+}
+
+
+
+
+
+
+
+#light-four {
+    fill: #ffff00;
+    animation-name: bulb;
+    animation-delay: 3s;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+#light-one {
+    fill: #ffff00;
+    animation-name: bulb;
+    animation-delay: 2s;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+#light-two {
+    fill: #ffff00;
+    animation-name: bulb;
+    animation-delay: 1s;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+#light-three {
+    fill: #ffff00;
+    animation-name: bulb;
+    animation-delay: 0s;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bulb {
+    0% {
+        fill: #ffff00;
+    }
+    50% {
+        fill: #800080;
+    }
+    100% {
+        fill: #ffff00;
+    }
+}

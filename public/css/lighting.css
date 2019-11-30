@@ -11,7 +11,6 @@ body {
 }
 
 .bottom {
-    height: 60%;
     display: block;
 }
 
@@ -92,7 +91,8 @@ body {
     border-radius: 16px;
     max-width: 80%;
     max-height: 80%;
-    margin: auto;
+    min-height: 80%;
+    margin: 2% 10% 6% 10%;
     box-sizing: border-box;
 }
 

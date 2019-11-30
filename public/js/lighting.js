@@ -1,15 +1,22 @@
+document.addEventListener('readystatechange', event => {
+    if(event.target.readyState === "complete") {
+        getStatus();                    
+        setInterval(getStatus, 1000);
+    }
+});
+
 function turnOn() {
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "http://flatfish.online:49161/on", true);
     xhttp.send();
-    getStatus();
+    // getStatus();
 }
 
 function turnOff() {
     var xhttp = new XMLHttpRequest();
     xhttp.open("GET", "http://flatfish.online:49161/off", true);
     xhttp.send();
-    getStatus();
+    // getStatus();
 }
 
 function getStatus() {
@@ -34,9 +41,4 @@ function getStatus() {
     xhttp.send();
 }
 
-document.addEventListener('readystatechange', event => {
-    if(event.target.readyState === "complete") {
-        getStatus();                    
-        setInterval(getStatus, 1000);
-    }
-});
+

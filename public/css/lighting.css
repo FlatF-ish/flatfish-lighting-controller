@@ -57,13 +57,6 @@ span {
     background-color: #63586e;
 }
 
-/* .on:hover
-{
-    color: #63586e;
-    background-color: #7cb54a;
-
-} */
-
 .off {
     color: #c23529;
     background-color: #63586e;
@@ -75,12 +68,6 @@ span {
     background-color: #63586e;
     border: 2px solid #d1bee6;
 }
-
-/* .off:hover
-{
-    color: #63586e;
-    background-color: #c23529;
-} */
 
 .content {
     background-color: #4d4654;

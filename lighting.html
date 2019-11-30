@@ -5,35 +5,30 @@
         <link rel="stylesheet" type="text/css" href="css/lighting.css">
         <script>
             function turnOn() {
-                console.log("hi");
                 var xhttp = new XMLHttpRequest();
                 xhttp.open("GET", "http://flatfish.online:49161/on", true);
                 xhttp.send();
             }
 
             function turnOff() {
-                console.log("hi");
                 var xhttp = new XMLHttpRequest();
                 xhttp.open("GET", "http://flatfish.online:49161/off", true);
                 xhttp.send();
             }
 
             function getStatus() {
-                while(true){
-                    setTimeout(1000);
-                    var xhttp = new XMLHttpRequest();
-                    console.log("hi");
-                    xhttp.onreadystatechange = function() {
-                        if(this.readyState === 4 && this.status === 200)
-                        {
-                            document.getElementById('js-status').innerHTML = this.responseText;
-                        } else {
-                            document.getElementById('js-status').innerHTML = this.statusText;
-                        }
+                setTimeout(1000);
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if(this.readyState === 4 && this.status === 200)
+                    {
+                        document.getElementById('js-status').innerHTML = this.responseText;
+                    } else {
+                        document.getElementById('js-status').innerHTML = this.statusText;
                     }
-                    xhttp.open("GET", "http://flatfish.online:49161/status", true);
-                    xhttp.send();
                 }
+                xhttp.open("GET", "http://flatfish.online:49161/status", true);
+                xhttp.send();
             }
 
             document.addEventListener('readystatechange', event => {

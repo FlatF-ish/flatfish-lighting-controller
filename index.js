@@ -1,5 +1,6 @@
 const express = require('express');
 const tplink = require('./tplink.js');
+const bodyParser = require('body-parser');
 const app = express();
 
 const fs = require('fs');
@@ -35,6 +36,18 @@ app.get('/status', (req, res) => {
     tplink.getStatus().then((status) => {
         res.send(`${status}`);
     })
+});
+
+app.use('/api', bodyParser.json());
+
+app.post('/api', (req, res) => {
+    if (req.body.type === "setState") {
+        // on or off
+    } else if (req.body.type === "toggle") {
+        tplink.toggle();
+    } else if (req.body.type === "status") {
+        tplink.getStatus();
+    }
 });
 
 app.listen(8000, () => {

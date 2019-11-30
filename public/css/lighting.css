@@ -46,7 +46,17 @@ body {
     margin: 0 16px 0 16px;
 }
 
-.button:active {
+.button:on {
+    outline: none;
+    border: none;
+}
+
+.button:off {
+    outline: none;
+    border: none;
+}
+
+.button:inactive {
     outline: none;
     border: none;
 }

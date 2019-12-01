@@ -58,8 +58,10 @@ app.post('/api', (req, res) => {
             });
             break;
         case "toggle": 
-            tplink.toggle().then((status) => { 
-                res.status(200).send(status ? "Lights turned on" : "Lights turned off"); 
+            tplink.toggle()
+                .then(() => tplink.getStatus())
+                .then((status) => { 
+                    res.status(200).send(`Lights turned ${status}`); 
             });
             break;
         case "status": 

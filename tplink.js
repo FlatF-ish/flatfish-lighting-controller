@@ -5,6 +5,7 @@ const { login } = require("tplink-cloud-api")
 var loggedInUser;
 var devices;
 var plug;
+var ready = false;
 
 async function logUserIn() {
     loggedInUser = await login(myUser, myPass)
@@ -18,19 +19,29 @@ async function getPlug() {
     plug = await loggedInUser.getHS100("Christmas Lights");
 }
 
+function isReady() {
+    if(!ready) {
+        throw new Error("Sozza ma boz, not quite ready for ma dudes yet - check back soon");
+    }
+}
+
 function toggle() {
+    isReady();
     return plug.toggle();
 }
 
 function turnOn() {
+    isReady();
     return plug.powerOn();
 }
 
 function turnOff() {
+    isReady();
     return plug.powerOff();
 }
 
 async function getStatus() {
+    isReady();
     var status = await plug.isOn();
     return status ? "on" : "off";
 }
@@ -39,6 +50,7 @@ async function setup() {
     await logUserIn();
     await getDevices();
     await getPlug();
+    ready = true;
 }
 
 setup();

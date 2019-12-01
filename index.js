@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
 
 app.get('/on', (req, res) => {
     tplink.turnOn().then( () => {
+        console.log("On");
         res.send("On");
     });
 });
@@ -30,6 +31,7 @@ app.get('/toggle', (req, res) => {
 
 app.get('/off', (req, res) => {
     tplink.turnOff().then( () => {
+        console.log("Off");
         res.send("Off");
     });
 });

@@ -3,7 +3,6 @@ const myPass = process.env.TP_LINK_PASSWORD;
 const { login } = require("tplink-cloud-api");
 
 var loggedInUser;
-var devices;
 var plug;
 var ready = false;
 
@@ -12,7 +11,7 @@ async function logUserIn() {
 }
 
 async function getDevices() {
-	devices = await loggedInUser.getDeviceList();
+	await loggedInUser.getDeviceList();
 }
 
 async function getPlug() {

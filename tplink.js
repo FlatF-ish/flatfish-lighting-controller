@@ -19,29 +19,29 @@ async function getPlug() {
     plug = await loggedInUser.getHS100("Christmas Lights");
 }
 
-function isReady() {
+function checkThatSetupIsCompete() {
     if(!ready) {
         throw new Error("Sozza ma boz, not quite ready for ma dudes yet - check back soon");
     }
 }
 
 function toggle() {
-    isReady();
+    checkThatSetupIsCompete();
     return plug.toggle();
 }
 
 function turnOn() {
-    isReady();
+    checkThatSetupIsCompete();
     return plug.powerOn();
 }
 
 function turnOff() {
-    isReady();
+    checkThatSetupIsCompete();
     return plug.powerOff();
 }
 
 async function getStatus() {
-    isReady();
+    checkThatSetupIsCompete();
     var status = await plug.isOn();
     return status ? "on" : "off";
 }

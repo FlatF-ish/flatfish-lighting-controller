@@ -1,6 +1,6 @@
 const myUser = process.env.TP_LINK_USER;
 const myPass = process.env.TP_LINK_PASSWORD;
-const { login } = require("tplink-cloud-api");
+const { login } = require('tplink-cloud-api');
 
 var loggedInUser;
 var plug;
@@ -15,12 +15,12 @@ async function getDevices() {
 }
 
 async function getPlug() {
-	plug = await loggedInUser.getHS100("Christmas Lights");
+	plug = await loggedInUser.getHS100('Christmas Lights');
 }
 
 function checkSetupCompleted() {
 	if (!ready) {
-		throw new Error("Sozza ma boz, not quite ready for ma dudes yet - check back soon");
+		throw new Error('Sozza ma boz, not quite ready for ma dudes yet - check back soon');
 	}
 }
 
@@ -42,7 +42,7 @@ function turnOff() {
 async function getStatus() {
 	checkSetupCompleted();
 	var status = await plug.isOn();
-	return status ? "on" : "off";
+	return status ? 'on' : 'off';
 }
 
 async function setup() {

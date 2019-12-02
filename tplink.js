@@ -7,6 +7,8 @@ var hallPlug;
 var kitchenPlug;
 var ready = false;
 
+var readyToSync = false;
+
 var kitchenStatus = 'off';
 var hallStatus = 'off';
 
@@ -59,29 +61,35 @@ async function getSecondaryStatus() {
 
 
 async function syncPlugs() {
-	var newHallStatus = await getStatus();
-	var newKitchenStatus = await getSecondaryStatus();
+	if(readyToSync) {
+		readyToSync = false;
+		var newHallStatus = await getStatus();
+		var newKitchenStatus = await getSecondaryStatus();
 
-	console.log("Hall old " + hallStatus);
-	console.log("Kitchen old " + kitchenStatus);
-	console.log("Hall new " + newHallStatus);
-	console.log("Kitchen new " + newKitchenStatus);
+		console.log("Hall old " + hallStatus);
+		console.log("Kitchen old " + kitchenStatus);
+		console.log("Hall new " + newHallStatus);
+		console.log("Kitchen new " + newKitchenStatus);
 
-	if (newHallStatus === newKitchenStatus && newHallStatus === hallStatus && newKitchenStatus === kitchenStatus)
-	{
-		console.log("No change required");
-	} else if (!(newHallStatus === hallStatus)) {
-		console.log("Hall changed, need to change kitchen");
-		hallStatus = newHallStatus;
-		kitchenStatus = newHallStatus;
-		newKitchenStatus = newHallStatus;
-		await synchroniseLighting(hallStatus)
-	} else {
-		console.log("Kitchen changed, need to change hall");
-		kitchenStatus = newKitchenStatus;
-		hallStatus = newKitchenStatus;
-		newHallStatus = newKitchenStatus;
-		await synchroniseLighting(kitchenStatus);
+		if (newHallStatus === newKitchenStatus && newHallStatus === hallStatus && newKitchenStatus === kitchenStatus)
+		{
+			console.log("No change required");
+			readyToSync = true;
+		} else if (!(newHallStatus === hallStatus)) {
+			console.log("Hall changed, need to change kitchen");
+			hallStatus = newHallStatus;
+			kitchenStatus = newHallStatus;
+			newKitchenStatus = newHallStatus;
+			await synchroniseLighting(hallStatus)
+			readyToSync = true;
+		} else {
+			console.log("Kitchen changed, need to change hall");
+			kitchenStatus = newKitchenStatus;
+			hallStatus = newKitchenStatus;
+			newHallStatus = newKitchenStatus;
+			await synchroniseLighting(kitchenStatus);
+			readyToSync = true;
+		}
 	}
 }
 
@@ -107,6 +115,7 @@ async function setup() {
 
 	hallStatus = await getStatus();
 	kitchenStatus = await getSecondaryStatus();
+	readyToSync = true;
 	setInterval(syncPlugs, 1000);
 }
 

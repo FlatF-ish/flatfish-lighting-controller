@@ -3,8 +3,12 @@ const myPass = process.env.TP_LINK_PASSWORD;
 const { login } = require('tplink-cloud-api');
 
 var loggedInUser;
-var plug;
+var hallPlug;
+var kitchenPlug;
 var ready = false;
+
+var kitchenStatus = 'off';
+var hallStatus = 'off';
 
 async function logUserIn() {
 	loggedInUser = await login(myUser, myPass);
@@ -15,7 +19,8 @@ async function getDevices() {
 }
 
 async function getPlug() {
-	plug = await loggedInUser.getHS100('Christmas Lights');
+	hallPlug = await loggedInUser.getHS100('Hall Lights');
+	kitchenPlug = await loggedInUser.getHS100('Kitchen Lights');
 }
 
 function checkSetupCompleted() {
@@ -26,23 +31,72 @@ function checkSetupCompleted() {
 
 function toggle() {
 	checkSetupCompleted();
-	return plug.toggle();
+	return hallPlug.toggle();
 }
 
 function turnOn() {
 	checkSetupCompleted();
-	return plug.powerOn();
+	return hallPlug.powerOn();
 }
 
 function turnOff() {
 	checkSetupCompleted();
-	return plug.powerOff();
+	return hallPlug.powerOff();
 }
 
 async function getStatus() {
 	checkSetupCompleted();
-	var status = await plug.isOn();
+	var status = await hallPlug.isOn();
 	return status ? 'on' : 'off';
+}
+
+async function getSecondaryStatus() {
+	checkSetupCompleted();
+	var status = await kitchenPlug.isOn();
+	return status ? 'on' : 'off';
+}
+
+
+
+async function syncPlugs() {
+	var newHallStatus = await getStatus();
+	var newKitchenStatus = await getSecondaryStatus();
+
+	console.log("Hall old " + hallStatus);
+	console.log("Kitchen old " + kitchenStatus);
+	console.log("Hall new " + newHallStatus);
+	console.log("Kitchen new " + newKitchenStatus);
+
+	if (newHallStatus === newKitchenStatus && newHallStatus === hallStatus && newKitchenStatus === kitchenStatus)
+	{
+		console.log("No change required");
+	} else if (!(newHallStatus === hallStatus)) {
+		console.log("Hall changed, need to change kitchen");
+		hallStatus = newHallStatus;
+		kitchenStatus = newHallStatus;
+		newKitchenStatus = newHallStatus;
+		await synchroniseLighting(hallStatus)
+	} else {
+		console.log("Kitchen changed, need to change hall");
+		kitchenStatus = newKitchenStatus;
+		hallStatus = newKitchenStatus;
+		newHallStatus = newKitchenStatus;
+		await synchroniseLighting(kitchenStatus);
+	}
+}
+
+async function synchroniseLighting(state) {
+	if (state === 'on')
+	{
+		await hallPlug.powerOn();
+		await kitchenPlug.powerOn();
+		console.log("Both on");
+	} else {
+		await hallPlug.powerOff();
+		await kitchenPlug.powerOff();
+		console.log("Both off");
+
+	}
 }
 
 async function setup() {
@@ -50,6 +104,10 @@ async function setup() {
 	await getDevices();
 	await getPlug();
 	ready = true;
+
+	hallStatus = await getStatus();
+	kitchenStatus = await getSecondaryStatus();
+	setInterval(syncPlugs, 1000);
 }
 
 setup();

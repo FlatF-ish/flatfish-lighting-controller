@@ -38,12 +38,19 @@ function toggle() {
 
 function turnOn() {
 	checkSetupCompleted();
-	return hallPlug.powerOn();
+	var hall = hallPlug.powerOn();
+	var kitchen = hallPlug.powerOn();
+
+	return Promise.all([hall, kitchen]);
 }
 
 function turnOff() {
 	checkSetupCompleted();
-	return hallPlug.powerOff();
+
+	var hall = hallPlug.powerOff();
+	var kitchen = hallPlug.powerOff();
+
+	return Promise.all([hall, kitchen]);
 }
 
 async function getStatus() {
@@ -59,7 +66,7 @@ async function getSecondaryStatus() {
 }
 
 
-
+// This could be cool later - but not yet
 async function syncPlugs() {
 	if(readyToSync) {
 		readyToSync = false;
@@ -93,6 +100,8 @@ async function syncPlugs() {
 	}
 }
 
+
+// In future this could be the magic required to sync plugs
 async function synchroniseLighting(state) {
 	if (state === 'on')
 	{
@@ -112,11 +121,11 @@ async function setup() {
 	await getDevices();
 	await getPlug();
 	ready = true;
-
-	hallStatus = await getStatus();
-	kitchenStatus = await getSecondaryStatus();
-	readyToSync = true;
-	setInterval(syncPlugs, 1000);
+	// Could be used later for some cool stuff!
+	// hallStatus = await getStatus();
+	// kitchenStatus = await getSecondaryStatus();
+	// readyToSync = true;
+	// setInterval(syncPlugs, 1000);
 }
 
 setup();

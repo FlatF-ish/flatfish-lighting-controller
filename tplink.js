@@ -3,6 +3,8 @@ const myPass = process.env.TP_LINK_PASSWORD;
 const { login } = require('tplink-cloud-api');
 
 var loggedInUser;
+var devices;
+
 var hallPlug;
 var kitchenPlug;
 var ready = false;
@@ -17,7 +19,7 @@ async function logUserIn() {
 }
 
 async function getDevices() {
-	await loggedInUser.getDeviceList();
+	devices = await loggedInUser.getDeviceList();
 }
 
 async function getPlug() {
@@ -39,7 +41,7 @@ function toggle() {
 function turnOn() {
 	checkSetupCompleted();
 	var hall = hallPlug.powerOn();
-	var kitchen = hallPlug.powerOn();
+	var kitchen = kitchenPlug.powerOn();
 
 	return Promise.all([hall, kitchen]);
 }
@@ -48,7 +50,7 @@ function turnOff() {
 	checkSetupCompleted();
 
 	var hall = hallPlug.powerOff();
-	var kitchen = hallPlug.powerOff();
+	var kitchen = kitchenPlug.powerOff();
 
 	return Promise.all([hall, kitchen]);
 }
@@ -119,6 +121,8 @@ async function synchroniseLighting(state) {
 async function setup() {
 	await logUserIn();
 	await getDevices();
+
+	console.log(devices);
 	await getPlug();
 	ready = true;
 	// Could be used later for some cool stuff!

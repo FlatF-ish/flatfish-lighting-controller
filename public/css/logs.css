@@ -1,0 +1,45 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.error-message {
+    color: red;
+}
+
+.warning-message {
+    color: orange;
+}
+
+.status-message {
+    color: green;
+}
+
+.generic-message {
+    color: white;
+}
+
+.log-line {
+    height: 20px;
+}
+
+.heading {
+    padding: 1%;
+    font-size: 3em;
+}
+
+.top {
+    height: 40%;
+    padding: 16px;
+}
+
+.content {
+    background-color: #4d4654;
+    border-radius: 16px;
+    max-width: 80%;
+    height: auto;
+    margin: 2% 10% 6% 10%;
+    box-sizing: border-box;
+    min-width: 80%;
+    position: absolute;
+}

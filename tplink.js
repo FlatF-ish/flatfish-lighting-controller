@@ -1,6 +1,8 @@
 const myUser = process.env.TP_LINK_USER;
 const myPass = process.env.TP_LINK_PASSWORD;
 const { login } = require('tplink-cloud-api');
+const file = require('fs');
+const fetch = require('node-fetch');
 
 var loggedInUser;
 var devices;
@@ -35,6 +37,7 @@ async function getPlug() {
 
 function checkSetupCompleted() {
 	if (!ready) {
+		logChange("error", "Tried to run a function before initial setup complete")
 		throw new Error('Sozza ma boz, not quite ready for ma dudes yet - check back soon');
 	}
 }
@@ -43,7 +46,7 @@ function toggle() {
 	checkSetupCompleted();
 	var hall = hallPlug.toggle();
 	var kitchen = kitchenPlug.toggle();
-
+	logChange("status", "Toggled");
 	return Promise.all([hall, kitchen]);
 
 }
@@ -53,6 +56,7 @@ function turnOn() {
 	var hall = hallPlug.powerOn();
 	var kitchen = kitchenPlug.powerOn();
 
+	logChange("status", "On");
 	return Promise.all([hall, kitchen]);
 }
 
@@ -62,15 +66,18 @@ function turnOff() {
 	var hall = hallPlug.powerOff();
 	var kitchen = kitchenPlug.powerOff();
 
+	logChange("status", "Off");
 	return Promise.all([hall, kitchen]);
 }
 
 async function getStatus() {
 	checkSetupCompleted();
 	var statusH = await hallPlug.isOn();
+
+	logChange("status",`${statusH}`);
+
 	return statusH ? 'on' : 'off';
 }
-
 
 async function syncStatus() {
 	checkSetupCompleted();
@@ -85,6 +92,7 @@ async function syncStatus() {
 
 	if (counter > 3) {
 		updatePlugs();
+		logChange("warning", "Out of sync");
 	}
 
 	return statusH ? 'on' : 'off';
@@ -116,11 +124,11 @@ async function updatePlugs() {
 	plug = await whichPlugChangedState();
 	
 	if (plug === 'hall') {
-		state = await hallPlug.isOn();
+		var state = await hallPlug.isOn();
 	}
 
 	if (plug === 'kitchen'){
-		state = await kitchenPlug.isOn();
+		var state = await kitchenPlug.isOn();
 	}
 
 	if (state) {
@@ -130,6 +138,50 @@ async function updatePlugs() {
 	}
 }
 
+
+function logChange(type, text)
+{
+	let dateObj = new Date();
+	var day = dateObj.getDate().toString().padStart(2, '0');
+	var month = (dateObj.getMonth()+1).toString().padStart(2, '0');
+	var year = dateObj.getFullYear().toString().padStart(4, '0');
+	var hour = dateObj.getHours().toString().padStart(2, '0');
+	var minute = dateObj.getMinutes().toString().padStart(2, '0');
+	var second = dateObj.getSeconds().toString().padStart(2, '0');
+	let time = `${day}-${month}-${year} ${hour}:${minute}:${second}`;
+	let message = `${type.toUpperCase()} ${text}: ${time}\n`;
+	file.appendFileSync(`${process.cwd()}/logs.txt`, message);
+
+	sendDiscordMessage(type, text, type, day, month, year, hour, minute, second) 
+}
+
+
+function sendDiscordMessage(type, text, type, day, month, year, hour, minute, second) {
+	var discordTime = `${day}-${month}-${year}_${hour}-${minute}-${second}`;
+	var discordMessage = "\`\`\`"
+	if (type.toLowerCase().includes("error")) {
+		discordMessage += `diff
+- ${type.toUpperCase()}`
+    } else if (type.toLowerCase().includes("warning")) {
+        discordMessage += `fix
+- ${type.toUpperCase()}`;
+    } else if (type.toLowerCase().includes("status")) {
+        discordMessage += `CSS
+- ${type.toUpperCase()}`;
+    } else {
+		discordMessage += "-"
+	}
+
+	discordMessage += ` ${text}__${discordTime}`
+	discordMessage += "\`\`\`";
+	
+	var body = { content : discordMessage }
+	fetch('https://discordapp.com/api/webhooks/653236090420985856/saL7of7pmuYI_LQkdmiDROc9BWAL07w1-YU1v3KVNNSUPyw6f1DwpTmlrUTnbSJoHE10' , {
+		method: 'POST',
+		body: JSON.stringify(body),
+		headers: {'Content-Type': 'application/json'},
+	});
+}
 // This could be cool later - but not yet
 // async function syncPlugs() {
 // 	if(readyToSync) {
@@ -181,22 +233,24 @@ async function updatePlugs() {
 // }
 
 async function setup() {
+	logChange("warning", "Server restarted, getting things ready");
 	await logUserIn();
 	await getDevices();
 
 	console.log(devices);
 	await getPlug();
 	ready = true;
-
+	logChange("status", "Set up complete");
 	previousHall = (await hallPlug.isOn()? 'on':'off');
 	previousKitchen = (await kitchenPlug.isOn()? 'on':'off');
 	// Could be used later for some cool stuff!
 	// hallStatus = await getStatus();
 	// kitchenStatus = await getSecondaryStatus();
 	// readyToSync = true;
+	logChange("status", "Initial synchronisation");
 	setInterval(syncStatus, 1000);
 }
 
 setup();
 
-module.exports = { turnOn: turnOn, turnOff: turnOff, toggle: toggle, getStatus: getStatus };
+module.exports = { turnOn: turnOn, turnOff: turnOff, toggle: toggle, getStatus: getStatus, logChange: logChange };

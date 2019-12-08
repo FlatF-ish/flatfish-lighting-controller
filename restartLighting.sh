@@ -1,4 +1,6 @@
 #! /bin/bash
+cp ../.env .
+
 echo "Pulling the update"
 git pull
 echo "Stopping existing continer"

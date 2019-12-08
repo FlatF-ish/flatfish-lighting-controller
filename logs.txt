@@ -1,0 +1,98 @@
+WARNING Server restarted, getting things ready: 08-12-2019 15:23:15
+ Lighting controller listening: 08-12-2019 15:23:15
+STATUS Set up complete: 08-12-2019 15:23:15
+STATUS Initial synchronisation: 08-12-2019 15:23:16
+WARNING Server restarted, getting things ready: 08-12-2019 15:26:07
+ Lighting controller listening: 08-12-2019 15:26:07
+STATUS Set up complete: 08-12-2019 15:26:07
+STATUS Initial synchronisation: 08-12-2019 15:26:08
+WARNING Server restarted, getting things ready: 08-12-2019 15:34:01
+ Lighting controller listening: 08-12-2019 15:34:02
+STATUS Set up complete: 08-12-2019 15:34:02
+STATUS Initial synchronisation: 08-12-2019 15:34:02
+STATUS On: 08-12-2019 15:39:29
+STATUS On: 08-12-2019 15:39:30
+ On Endpoint: 08-12-2019 15:39:30
+STATUS On: 08-12-2019 15:39:30
+STATUS On: 08-12-2019 15:39:30
+STATUS On: 08-12-2019 15:39:30
+ On Endpoint: 08-12-2019 15:39:30
+STATUS On: 08-12-2019 15:39:30
+ On Endpoint: 08-12-2019 15:39:30
+ On Endpoint: 08-12-2019 15:39:31
+ On Endpoint: 08-12-2019 15:39:31
+STATUS On: 08-12-2019 15:39:31
+STATUS On: 08-12-2019 15:39:31
+STATUS On: 08-12-2019 15:39:31
+STATUS On: 08-12-2019 15:39:31
+STATUS On: 08-12-2019 15:39:31
+STATUS On: 08-12-2019 15:39:31
+STATUS On: 08-12-2019 15:39:31
+ On Endpoint: 08-12-2019 15:39:31
+ On Endpoint: 08-12-2019 15:39:31
+STATUS On: 08-12-2019 15:39:31
+STATUS On: 08-12-2019 15:39:32
+ On Endpoint: 08-12-2019 15:39:32
+ On Endpoint: 08-12-2019 15:39:32
+ On Endpoint: 08-12-2019 15:39:32
+ On Endpoint: 08-12-2019 15:39:32
+ On Endpoint: 08-12-2019 15:39:32
+ On Endpoint: 08-12-2019 15:39:32
+STATUS On: 08-12-2019 15:39:32
+ On Endpoint: 08-12-2019 15:39:32
+STATUS On: 08-12-2019 15:39:32
+STATUS On: 08-12-2019 15:39:32
+STATUS On: 08-12-2019 15:39:32
+ On Endpoint: 08-12-2019 15:39:32
+ On Endpoint: 08-12-2019 15:39:33
+ On Endpoint: 08-12-2019 15:39:33
+STATUS On: 08-12-2019 15:39:33
+ On Endpoint: 08-12-2019 15:39:33
+STATUS On: 08-12-2019 15:39:33
+ On Endpoint: 08-12-2019 15:39:33
+STATUS On: 08-12-2019 15:39:33
+STATUS On: 08-12-2019 15:39:33
+STATUS On: 08-12-2019 15:39:33
+STATUS On: 08-12-2019 15:39:33
+STATUS On: 08-12-2019 15:39:33
+ On Endpoint: 08-12-2019 15:39:33
+ On Endpoint: 08-12-2019 15:39:33
+ On Endpoint: 08-12-2019 15:39:33
+STATUS On: 08-12-2019 15:39:33
+ On Endpoint: 08-12-2019 15:39:33
+ On Endpoint: 08-12-2019 15:39:33
+STATUS On: 08-12-2019 15:39:34
+STATUS On: 08-12-2019 15:39:34
+STATUS On: 08-12-2019 15:39:34
+STATUS On: 08-12-2019 15:39:34
+ On Endpoint: 08-12-2019 15:39:34
+ On Endpoint: 08-12-2019 15:39:34
+ On Endpoint: 08-12-2019 15:39:34
+ On Endpoint: 08-12-2019 15:39:34
+ On Endpoint: 08-12-2019 15:39:34
+ On Endpoint: 08-12-2019 15:39:34
+STATUS On: 08-12-2019 15:39:34
+STATUS On: 08-12-2019 15:39:34
+STATUS On: 08-12-2019 15:39:34
+STATUS On: 08-12-2019 15:39:35
+ On Endpoint: 08-12-2019 15:39:35
+ On Endpoint: 08-12-2019 15:39:35
+ On Endpoint: 08-12-2019 15:39:35
+ On Endpoint: 08-12-2019 15:39:35
+STATUS On: 08-12-2019 15:39:35
+ On Endpoint: 08-12-2019 15:39:35
+STATUS On: 08-12-2019 15:39:35
+ On Endpoint: 08-12-2019 15:39:35
+ On Endpoint: 08-12-2019 15:39:35
+STATUS On: 08-12-2019 15:45:35
+ On Endpoint: 08-12-2019 15:45:36
+WARNING Server restarted, getting things ready: 08-12-2019 15:52:17
+ Lighting controller listening: 08-12-2019 15:52:17
+STATUS Set up complete: 08-12-2019 15:52:17
+STATUS Initial synchronisation: 08-12-2019 15:52:18
+WARNING Server restarted, getting things ready: 08-12-2019 15:52:35
+ Lighting controller listening: 08-12-2019 15:52:35
+WARNING Server restarted, getting things ready: 08-12-2019 15:53:51
+ Lighting controller listening: 08-12-2019 15:53:51
+STATUS Set up complete: 08-12-2019 15:53:51
+STATUS Initial synchronisation: 08-12-2019 15:53:52

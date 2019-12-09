@@ -96,3 +96,54 @@ WARNING Server restarted, getting things ready: 08-12-2019 15:53:51
  Lighting controller listening: 08-12-2019 15:53:51
 STATUS Set up complete: 08-12-2019 15:53:51
 STATUS Initial synchronisation: 08-12-2019 15:53:52
+ Lighting controller listening: 08-12-2019 16:01:20
+ Lighting controller listening: 08-12-2019 16:01:39
+WARNING Server restarted, getting things ready: 08-12-2019 16:02:07
+ Lighting controller listening: 08-12-2019 16:02:07
+STATUS Set up complete: 08-12-2019 16:02:07
+STATUS Initial synchronisation: 08-12-2019 16:02:08
+STATUS On: 08-12-2019 16:02:15
+ On Endpoint: 08-12-2019 16:02:15
+STATUS On: 08-12-2019 16:07:06
+ On Endpoint: 08-12-2019 16:07:06
+WARNING Server restarted, getting things ready: 08-12-2019 16:12:54
+WARNING Server restarted, getting things ready: 08-12-2019 16:12:54
+WARNING Server restarted, getting things ready: 08-12-2019 16:15:19
+WARNING Server restarted, getting things ready: 08-12-2019 16:16:36
+ Lighting controller listening: 08-12-2019 16:16:36
+STATUS Set up complete: 08-12-2019 16:16:36
+STATUS Initial synchronisation: 08-12-2019 16:16:37
+WARNING Server restarted, getting things ready: 08-12-2019 16:17:25
+ Lighting controller listening: 08-12-2019 16:17:25
+STATUS Set up complete: 08-12-2019 16:17:25
+STATUS Initial synchronisation: 08-12-2019 16:17:25
+WARNING Server restarted, getting things ready: 08-12-2019 16:17:37
+ Lighting controller listening: 08-12-2019 16:17:37
+STATUS Set up complete: 08-12-2019 16:17:37
+STATUS Initial synchronisation: 08-12-2019 16:17:38
+WARNING Server restarted, getting things ready: 08-12-2019 16:19:55
+ Lighting controller listening: 08-12-2019 16:19:55
+STATUS Set up complete: 08-12-2019 16:19:56
+STATUS Initial synchronisation: 08-12-2019 16:19:56
+WARNING Server restarted, getting things ready: 08-12-2019 16:20:41
+ Lighting controller listening: 08-12-2019 16:20:41
+STATUS Set up complete: 08-12-2019 16:20:41
+STATUS Initial synchronisation: 08-12-2019 16:20:41
+WARNING Server restarted, getting things ready: 08-12-2019 16:21:20
+ Lighting controller listening: 08-12-2019 16:21:20
+STATUS Set up complete: 08-12-2019 16:21:20
+STATUS Initial synchronisation: 08-12-2019 16:21:21
+WARNING Server restarted, getting things ready: 08-12-2019 16:22:41
+ Lighting controller listening: 08-12-2019 16:22:41
+STATUS Set up complete: 08-12-2019 16:22:41
+STATUS Initial synchronisation: 08-12-2019 16:22:42
+WARNING Server restarted, getting things ready: 08-12-2019 16:34:11 : unknown ip
+ Lighting controller listening: 08-12-2019 16:34:12 : unknown ip
+STATUS Set up complete: 08-12-2019 16:34:12 : unknown ip
+STATUS Initial synchronisation: 08-12-2019 16:34:12 : unknown ip
+WARNING Server restarted, getting things ready: 09-12-2019 21:36:10 : unknown ip
+ Lighting controller listening: 09-12-2019 21:36:10 : unknown ip
+WARNING Server restarted, getting things ready: 09-12-2019 21:36:29 : unknown ip
+ Lighting controller listening: 09-12-2019 21:36:29 : unknown ip
+STATUS Set up complete: 09-12-2019 21:36:29 : unknown ip
+STATUS Initial synchronisation: 09-12-2019 21:36:30 : unknown ip

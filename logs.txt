@@ -243,3 +243,59 @@ STATUS Off: 10-12-2019 21:29:48 : unknown ip
 STATUS On: 10-12-2019 21:30:02 : unknown ip
  On Endpoint: 10-12-2019 21:30:03 : ::1
 STATUS Toggled: 10-12-2019 21:30:10 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:45:30 : unknown ip
+ Lighting controller listening: 10-12-2019 21:45:30 : unknown ip
+STATUS Set up complete: 10-12-2019 21:45:30 : unknown ip
+STATUS Initial synchronisation: 10-12-2019 21:45:31 : unknown ip
+STATUS false: 10-12-2019 21:45:41 : unknown ip
+STATUS false: 10-12-2019 21:45:42 : unknown ip
+STATUS false: 10-12-2019 21:45:43 : unknown ip
+STATUS On: 10-12-2019 21:45:44 : unknown ip
+ On Endpoint: 10-12-2019 21:45:44 : ::1
+STATUS true: 10-12-2019 21:45:44 : unknown ip
+STATUS Off: 10-12-2019 21:45:46 : unknown ip
+STATUS true: 10-12-2019 21:45:46 : unknown ip
+ Off Endpoint: 10-12-2019 21:45:46 : ::1
+STATUS false: 10-12-2019 21:45:46 : unknown ip
+STATUS false: 10-12-2019 21:45:47 : unknown ip
+STATUS On: 10-12-2019 21:45:48 : unknown ip
+ On Endpoint: 10-12-2019 21:45:48 : ::1
+STATUS true: 10-12-2019 21:45:48 : unknown ip
+STATUS true: 10-12-2019 21:45:49 : unknown ip
+STATUS true: 10-12-2019 21:45:50 : unknown ip
+STATUS true: 10-12-2019 21:45:52 : unknown ip
+STATUS true: 10-12-2019 21:45:53 : unknown ip
+STATUS true: 10-12-2019 21:45:54 : unknown ip
+STATUS true: 10-12-2019 21:45:55 : unknown ip
+STATUS true: 10-12-2019 21:45:56 : unknown ip
+STATUS true: 10-12-2019 21:45:57 : unknown ip
+STATUS true: 10-12-2019 21:45:58 : unknown ip
+STATUS true: 10-12-2019 21:45:59 : unknown ip
+STATUS true: 10-12-2019 21:46:00 : unknown ip
+STATUS true: 10-12-2019 21:46:01 : unknown ip
+STATUS true: 10-12-2019 21:46:02 : unknown ip
+STATUS true: 10-12-2019 21:46:03 : unknown ip
+STATUS true: 10-12-2019 21:46:04 : unknown ip
+STATUS true: 10-12-2019 21:46:05 : unknown ip
+STATUS true: 10-12-2019 21:46:06 : unknown ip
+STATUS true: 10-12-2019 21:46:07 : unknown ip
+STATUS true: 10-12-2019 21:46:08 : unknown ip
+STATUS true: 10-12-2019 21:46:09 : unknown ip
+STATUS true: 10-12-2019 21:46:10 : unknown ip
+STATUS true: 10-12-2019 21:46:11 : unknown ip
+STATUS true: 10-12-2019 21:46:12 : unknown ip
+STATUS true: 10-12-2019 21:46:13 : unknown ip
+STATUS true: 10-12-2019 21:46:14 : unknown ip
+STATUS true: 10-12-2019 21:46:15 : unknown ip
+STATUS true: 10-12-2019 21:46:16 : unknown ip
+STATUS true: 10-12-2019 21:46:17 : unknown ip
+STATUS true: 10-12-2019 21:46:18 : unknown ip
+STATUS true: 10-12-2019 21:46:19 : unknown ip
+STATUS true: 10-12-2019 21:46:20 : unknown ip
+STATUS true: 10-12-2019 21:46:21 : unknown ip
+STATUS true: 10-12-2019 21:46:22 : unknown ip
+STATUS true: 10-12-2019 21:46:23 : unknown ip
+STATUS true: 10-12-2019 21:46:24 : unknown ip
+STATUS true: 10-12-2019 21:46:25 : unknown ip
+STATUS true: 10-12-2019 21:46:26 : unknown ip
+STATUS true: 10-12-2019 21:46:27 : unknown ip

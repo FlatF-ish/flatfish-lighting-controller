@@ -83,8 +83,6 @@ async function getStatus() {
 	checkSetupCompleted();
 	var statusH = await hallPlug.isOn().catch((err) => logger.log("error", `Could not get status for hall:\n${err}`));
 
-	logger.log("status",`${statusH}`);
-
 	return statusH ? 'on' : 'off';
 }
 

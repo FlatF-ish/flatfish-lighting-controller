@@ -147,3 +147,99 @@ WARNING Server restarted, getting things ready: 09-12-2019 21:36:29 : unknown ip
  Lighting controller listening: 09-12-2019 21:36:29 : unknown ip
 STATUS Set up complete: 09-12-2019 21:36:29 : unknown ip
 STATUS Initial synchronisation: 09-12-2019 21:36:30 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 20:26:45 : unknown ip
+ Lighting controller listening: 10-12-2019 20:26:45 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 20:27:12 : unknown ip
+ Lighting controller listening: 10-12-2019 20:27:12 : unknown ip
+ERROR Failed to login:
+Error: response error: code=-20600, status="OK", message="Account not found": 10-12-2019 20:27:12 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 20:27:55 : unknown ip
+ Lighting controller listening: 10-12-2019 20:27:55 : unknown ip
+ERROR Failed to login:
+Error: response error: code=-20600, status="OK", message="Account not found": 10-12-2019 20:27:55 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 20:47:21 : unknown ip
+ Lighting controller listening: 10-12-2019 20:47:21 : unknown ip
+ERROR Failed to login:
+Error: response error: code=-20600, status="OK", message="Account not found": 10-12-2019 20:47:21 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 20:47:31 : unknown ip
+ Lighting controller listening: 10-12-2019 20:47:31 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:05:00 : unknown ip
+ Lighting controller listening: 10-12-2019 21:05:00 : unknown ip
+STATUS Set up complete: 10-12-2019 21:05:01 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:13:27 : unknown ip
+ Lighting controller listening: 10-12-2019 21:13:27 : unknown ip
+STATUS Set up complete: 10-12-2019 21:13:28 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:14:33 : unknown ip
+ Lighting controller listening: 10-12-2019 21:14:33 : unknown ip
+STATUS Set up complete: 10-12-2019 21:14:34 : unknown ip
+ERROR Could not get status for hall:
+Error: response error: code=-20002, status="OK", message="Request timeout": 10-12-2019 21:14:44 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:19:14 : unknown ip
+ Lighting controller listening: 10-12-2019 21:19:14 : unknown ip
+STATUS Set up complete: 10-12-2019 21:19:14 : unknown ip
+ERROR This is embarrasing - could not get status of the plugs at setup
+ TypeError: Cannot read property 'isOn' of undefined: 10-12-2019 21:19:15 : unknown ip
+STATUS Initial synchronisation: 10-12-2019 21:19:15 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:22:38 : unknown ip
+ Lighting controller listening: 10-12-2019 21:22:38 : unknown ip
+STATUS Set up complete: 10-12-2019 21:22:38 : unknown ip
+ERROR This is embarrasing - could not get status of the plugs at setup
+ TypeError: Cannot read property 'isOn' of undefined: 10-12-2019 21:22:39 : unknown ip
+STATUS Initial synchronisation: 10-12-2019 21:22:39 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:23:05 : unknown ip
+ Lighting controller listening: 10-12-2019 21:23:05 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:23:13 : unknown ip
+ Lighting controller listening: 10-12-2019 21:23:13 : unknown ip
+STATUS Set up complete: 10-12-2019 21:23:14 : unknown ip
+ERROR This is embarrasing - could not get status of the plugs at setup
+ TypeError: Cannot read property 'isOn' of undefined: 10-12-2019 21:23:14 : unknown ip
+STATUS Initial synchronisation: 10-12-2019 21:23:14 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:23:34 : unknown ip
+ Lighting controller listening: 10-12-2019 21:23:34 : unknown ip
+STATUS Set up complete: 10-12-2019 21:23:35 : unknown ip
+ERROR This is embarrasing - could not get status of the plugs at setup
+ TypeError: Cannot read property 'isOn' of undefined: 10-12-2019 21:23:35 : unknown ip
+STATUS Initial synchronisation: 10-12-2019 21:23:35 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:23:44 : unknown ip
+ Lighting controller listening: 10-12-2019 21:23:44 : unknown ip
+STATUS Set up complete: 10-12-2019 21:23:45 : unknown ip
+ERROR This is embarrasing - could not get status of the plugs at setup
+ TypeError: Cannot read property 'isOn' of undefined: 10-12-2019 21:23:45 : unknown ip
+STATUS Initial synchronisation: 10-12-2019 21:23:45 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:24:40 : unknown ip
+ Lighting controller listening: 10-12-2019 21:24:40 : unknown ip
+STATUS Set up complete: 10-12-2019 21:24:41 : unknown ip
+ERROR This is embarrasing - could not get status of the plugs at setup
+ TypeError: Cannot read property 'isOn' of undefined: 10-12-2019 21:24:41 : unknown ip
+STATUS Initial synchronisation: 10-12-2019 21:24:41 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:25:37 : unknown ip
+ Lighting controller listening: 10-12-2019 21:25:37 : unknown ip
+STATUS Set up complete: 10-12-2019 21:25:37 : unknown ip
+ERROR This is embarrasing - could not get status of the plugs at setup
+ TypeError: Cannot read property 'isOn' of undefined: 10-12-2019 21:25:38 : unknown ip
+STATUS Initial synchronisation: 10-12-2019 21:25:38 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:26:25 : unknown ip
+ Lighting controller listening: 10-12-2019 21:26:25 : unknown ip
+STATUS Set up complete: 10-12-2019 21:26:26 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:26:43 : unknown ip
+ Lighting controller listening: 10-12-2019 21:26:43 : unknown ip
+STATUS Set up complete: 10-12-2019 21:26:43 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:26:52 : unknown ip
+ Lighting controller listening: 10-12-2019 21:26:52 : unknown ip
+STATUS Set up complete: 10-12-2019 21:26:53 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:27:37 : unknown ip
+ Lighting controller listening: 10-12-2019 21:27:37 : unknown ip
+STATUS Set up complete: 10-12-2019 21:27:38 : unknown ip
+WARNING Server restarted, getting things ready: 10-12-2019 21:29:15 : unknown ip
+ Lighting controller listening: 10-12-2019 21:29:15 : unknown ip
+STATUS Set up complete: 10-12-2019 21:29:15 : unknown ip
+STATUS Initial synchronisation: 10-12-2019 21:29:16 : unknown ip
+STATUS Off: 10-12-2019 21:29:22 : unknown ip
+ Off Endpoint: 10-12-2019 21:29:22 : ::1
+STATUS On: 10-12-2019 21:29:26 : unknown ip
+ On Endpoint: 10-12-2019 21:29:26 : ::1
+STATUS Off: 10-12-2019 21:29:48 : unknown ip
+ Off Endpoint: 10-12-2019 21:29:49 : ::1
+STATUS On: 10-12-2019 21:30:02 : unknown ip
+ On Endpoint: 10-12-2019 21:30:03 : ::1
+STATUS Toggled: 10-12-2019 21:30:10 : unknown ip

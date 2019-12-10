@@ -17,7 +17,7 @@ function turnOn() {
 			disableStatusUpdate = false;
 		}
 	};
-	xhttp.open('GET', 'http://flatfish.online:49161/on', true);
+	xhttp.open('GET', '/on', true);
 	xhttp.send();
 }
 
@@ -30,7 +30,7 @@ function turnOff() {
 			disableStatusUpdate = false;
 		}
 	};
-	xhttp.open('GET', 'http://flatfish.online:49161/off', true);
+	xhttp.open('GET', '/off', true);
 	xhttp.send();
 }
 
@@ -106,6 +106,6 @@ function getStatus() {
 			}
 		}
 	};
-	xhttp.open('GET', 'http://flatfish.online:49161/status', true);
+	xhttp.open('GET', '/status', true);
 	xhttp.send();
 }

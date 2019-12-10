@@ -23,16 +23,25 @@ var kitchenStatus = 'off';
 var hallStatus = 'off';
 
 async function logUserIn() {
-	loggedInUser = await login(myUser, myPass, token);
+	loggedInUser = await login(myUser, myPass, token).catch((err) => logger.log("error", `Failed to login:\n${err}`));
 }
 
 async function getDevices() {
-	devices = await loggedInUser.getDeviceList();
+	devices = await loggedInUser.getDeviceList().catch((err) => logger.log("error", `Failed to get device list:\n${err}`));
 }
 
 async function getPlug() {
-	hallPlug = await loggedInUser.getHS100('Hall Lights');
-	kitchenPlug = await loggedInUser.getHS100('Kitchen Lights');
+	try {
+		hallPlug = await loggedInUser.getHS100('Hall Lights');
+	} catch (err) {
+		logger.log("error", `There is a problem with the hall lights:\n${err}`);
+	}
+
+	try {
+		kitchenPlug = await loggedInUser.getHS100('Kitchen Lights');
+	} catch (err) {
+		logger.log("error", `There is a problem with the kitchen lights:\n${err}`);
+	}
 }
 
 function checkSetupCompleted() {
@@ -47,7 +56,7 @@ function toggle() {
 	var hall = hallPlug.toggle();
 	var kitchen = kitchenPlug.toggle();
 	logger.log("status", "Toggled");
-	return Promise.all([hall, kitchen]);
+	return Promise.all([hall, kitchen]).catch((err) => logger.log("error", `Failed to toggle:\n${err}`));;
 
 }
 
@@ -57,7 +66,7 @@ function turnOn() {
 	var kitchen = kitchenPlug.powerOn();
 
 	logger.log("status", "On");
-	return Promise.all([hall, kitchen]);
+	return Promise.all([hall, kitchen]).catch((err) => logger.log("error", `Failed to turn on:\n${err}`));
 }
 
 function turnOff() {
@@ -67,12 +76,12 @@ function turnOff() {
 	var kitchen = kitchenPlug.powerOff();
 
 	logger.log("status", "Off");
-	return Promise.all([hall, kitchen]);
+	return Promise.all([hall, kitchen]).catch((err) => logger.log("error", `Failed to turn off:\n${err}`));
 }
 
 async function getStatus() {
 	checkSetupCompleted();
-	var statusH = await hallPlug.isOn();
+	var statusH = await hallPlug.isOn().catch((err) => logger.log("error", `Could not get status for hall:\n${err}`));
 
 	logger.log("status",`${statusH}`);
 
@@ -81,8 +90,8 @@ async function getStatus() {
 
 async function syncStatus() {
 	checkSetupCompleted();
-	var statusH = await hallPlug.isOn();
-	var statusK = await kitchenPlug.isOn();
+	var statusH = await hallPlug.isOn().catch((err) => logger.log("error", `Could not get status for hall:\n${err}`));
+	var statusK = await kitchenPlug.isOn().catch((err) => logger.log("error", `Could not get status for kitchen:\n${err}`));
 
 	if(statusH === statusK) {
 		counter = 0;
@@ -107,8 +116,8 @@ async function syncStatus() {
 
 async function whichPlugChangedState() {
 	checkSetupCompleted();
-	var statusH = await hallPlug.isOn();
-	var statusK = await kitchenPlug.isOn();
+	var statusH = await hallPlug.isOn().catch((err) => logger.log("error", `Could not get status for hall:\n${err}`));;
+	var statusK = await kitchenPlug.isOn().catch((err) => logger.log("error", `Could not get status for kitchen:\n${err}`));;
 	if (!(previousHall === statusH)){
 		previousHall = statusH;
 		return 'hall'
@@ -124,11 +133,11 @@ async function updatePlugs() {
 	plug = await whichPlugChangedState();
 	
 	if (plug === 'hall') {
-		var state = await hallPlug.isOn();
+		var state = await hallPlug.isOn().catch((err) => logger.log("error", `Could not get status for hall:\n${err}`));
 	}
 
 	if (plug === 'kitchen'){
-		var state = await kitchenPlug.isOn();
+		var state = await kitchenPlug.isOn().catch((err) => logger.log("error", `Could not get status for kitchen:\n${err}`));
 	}
 
 	if (state) {
@@ -197,8 +206,12 @@ async function setup() {
 	await getPlug();
 	ready = true;
 	logger.log("status", "Set up complete");
+	try {
 	previousHall = (await hallPlug.isOn()? 'on':'off');
 	previousKitchen = (await kitchenPlug.isOn()? 'on':'off');
+	} catch (err) {
+		logger.log("error", `This is embarrasing - could not get status of the plugs at setup\n ${err}`);
+	}
 	// Could be used later for some cool stuff!
 	// hallStatus = await getStatus();
 	// kitchenStatus = await getSecondaryStatus();

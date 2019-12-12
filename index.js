@@ -100,7 +100,11 @@ app.listen(8000, () => {
 });
 
 app.get('/logs', (req, res) => {
-	res.sendFile(process.cwd() + '/public/logs.html') 
+	res.sendFile(process.cwd() + '/public/logs.html');
+})
+
+app.get('/login', (req, res) => {
+	res.sendFile(`${process.cwd()}/public/login.html`);
 })
 
 app.get('/console-data', (req, res) => {

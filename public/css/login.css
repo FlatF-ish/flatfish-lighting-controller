@@ -1,0 +1,150 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.heading {
+    padding: 1%;
+    font-size: 3em;
+}
+
+.top {
+    height: 40%;
+    padding: 16px;
+}
+
+.content {
+    background-color: #4d4654;
+    text-align: center;
+    border-radius: 16px;
+    max-width: 80%;
+    max-height: 80%;
+    min-height: 80%;
+    margin: 2% 10% 6% 10%;
+    box-sizing: border-box;
+    align-content: center;
+
+}
+
+
+.text-entry {
+    background-color: #63586e;
+    color: #d1bee6;
+    outline: none;
+    border-left: 0;
+    border-right: 0;
+    /* border-bottom: 2px solid #000000; */
+    border-top: 0; 
+    border-bottom: 0;
+
+    border-radius: 4px;
+    line-height: 30px;
+    padding-left: 8px;
+    box-sizing: border-box;
+
+    animation-name: inputLostFocus;
+    animation-delay: 0s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.text-entry:focus {
+    animation-name: inputFocus;
+    animation-delay: 0s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    /* border-bottom: 2px solid #d1bee6; */
+    box-sizing: border-box;
+}
+
+.button {
+    background-color: #63586e;
+    color: #d1bee6;
+    outline: none;
+    border: 1px solid #d1bee6;
+    margin-top: 16px;
+    padding: 16px;
+    border-radius: 16px;
+}
+
+.button:hover {
+    cursor: pointer;
+    animation-name: inputFocus;
+    animation-delay: 0s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.name-underline {
+    width: 0px;
+    height: 1px;
+    background-color: #d1bee6;
+    margin: auto;
+}
+
+.key-underline {
+    width: 0px;
+    height: 1px;
+    background-color: #d1bee6;
+    margin: auto;
+}
+
+.active-underline {
+    animation-name: underlineMe;
+    animation-delay: s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.inactive-underline {
+    animation-name: unUnderlineMe;
+    animation-delay: s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes inputFocus {
+    0% {
+        box-shadow: 0 0 0 #d1bee6;
+    }
+    100% {
+        box-shadow: 0 0 16px #d1bee6;
+    }
+} 
+
+@keyframes inputLostFocus {
+    0% {
+        box-shadow: 0 0 16px #d1bee6;
+    }
+    100% {
+        box-shadow: 0 0 0 #d1bee6;
+    }
+} 
+
+@keyframes underlineMe {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 167px;
+    }
+} 
+
+@keyframes unUnderlineMe {
+    100% {
+        width: 0px;
+    }
+    0% {
+        width: 167px;
+    }
+} 
+
+/* input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  } */

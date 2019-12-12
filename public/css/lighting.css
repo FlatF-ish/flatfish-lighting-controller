@@ -47,6 +47,7 @@ body {
 
 .button:hover {
     cursor: pointer;
+    box-shadow: 0 0 16px #d1bee6;
 }
 
 .button:active {

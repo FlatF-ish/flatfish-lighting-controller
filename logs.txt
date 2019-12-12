@@ -299,3 +299,35 @@ STATUS true: 10-12-2019 21:46:24 : unknown ip
 STATUS true: 10-12-2019 21:46:25 : unknown ip
 STATUS true: 10-12-2019 21:46:26 : unknown ip
 STATUS true: 10-12-2019 21:46:27 : unknown ip
+WARNING Server restarted, getting things ready: 12-12-2019 18:47:09 : unknown ip
+ Lighting controller listening: 12-12-2019 18:47:09 : unknown ip
+STATUS Set up complete: 12-12-2019 18:47:09 : unknown ip
+STATUS Initial synchronisation: 12-12-2019 18:47:10 : unknown ip
+STATUS On: 12-12-2019 18:47:30 : unknown ip
+ On Endpoint: 12-12-2019 18:47:30 : ::1
+WARNING Server restarted, getting things ready: 12-12-2019 19:29:39 : unknown ip
+ Lighting controller listening: 12-12-2019 19:29:39 : unknown ip
+STATUS Set up complete: 12-12-2019 19:29:40 : unknown ip
+STATUS Initial synchronisation: 12-12-2019 19:29:40 : unknown ip
+WARNING Server restarted, getting things ready: 12-12-2019 20:03:53 : unknown ip
+ Lighting controller listening: 12-12-2019 20:03:53 : unknown ip
+STATUS Set up complete: 12-12-2019 20:03:53 : unknown ip
+STATUS Initial synchronisation: 12-12-2019 20:03:54 : unknown ip
+STATUS Off: 12-12-2019 20:18:47 : unknown ip
+ Off Endpoint: 12-12-2019 20:18:47 : ::1
+STATUS On: 12-12-2019 20:18:49 : unknown ip
+ On Endpoint: 12-12-2019 20:18:50 : ::1
+STATUS On: 12-12-2019 20:19:00 : unknown ip
+ On Endpoint: 12-12-2019 20:19:00 : ::1
+STATUS On: 12-12-2019 20:19:02 : unknown ip
+ On Endpoint: 12-12-2019 20:19:03 : ::1
+STATUS On: 12-12-2019 20:19:04 : unknown ip
+ On Endpoint: 12-12-2019 20:19:04 : ::1
+STATUS On: 12-12-2019 20:19:05 : unknown ip
+ On Endpoint: 12-12-2019 20:19:06 : ::1
+STATUS On: 12-12-2019 20:19:07 : unknown ip
+ On Endpoint: 12-12-2019 20:19:07 : ::1
+STATUS On: 12-12-2019 20:19:09 : unknown ip
+ On Endpoint: 12-12-2019 20:19:10 : ::1
+STATUS On: 12-12-2019 20:19:12 : unknown ip
+ On Endpoint: 12-12-2019 20:19:12 : ::1

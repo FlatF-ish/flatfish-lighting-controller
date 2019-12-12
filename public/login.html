@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login to control the lights</title>
+        <link rel="icon" href="/images/bulb.ico">
+        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <script src="js/login.js"></script>
+    </head>
+
+    <body>
+            <div class="content">
+                    <div class = "top">
+                        <h1 class="heading">Login</h1>
+
+                        <h1>Please enter flat key</h1>
+                        <input type="text" id="key-input" class="text-entry"/>      
+                        <div id="key-underline" class="key-underline"></div>  
+                        <h2>Please enter your name</h2>        
+                        <input type="text" id="name-input" class="text-entry"/>
+                        <div id="name-underline" class="name-underline"></div>  
+                        <div>
+                            <button class="button" onclick="submitResults()">Login</button>
+                        </div>
+                    </div>
+                </div>
+
+        <!-- Entering name, add to cookie do magic - like log who turned on the light! -->
+    </body>
+</html>

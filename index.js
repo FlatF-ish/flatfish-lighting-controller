@@ -5,8 +5,10 @@ const tplink = require('./tplink.js');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const logger = require('./logger.js');
+const cookieParser = require('cookie-parser');
 
-
+var nameCookie;
+var keyCookie;
 
 require('dns').reverse("192.168.0.44", function(err, domains) {
 	console.log(domains);
@@ -16,26 +18,68 @@ require('dns').reverse("192.168.0.44", function(err, domains) {
 
 const app = express();
 app.use(express.static('public'));
+app.use(cookieParser());
+
+function isAuthenticUser(req) {
+	console.log("Authentic");
+	nameCookie = req.cookies.name;
+	keyCookie = req.cookies.key;
+
+	console.log(nameCookie);
+	console.log(keyCookie);
+	console.log(!nameCookie || !keyCookie);
+
+	if (!nameCookie || !keyCookie)
+		return false;
+	return true;
+}
 
 app.get('/', (req, res) => {
-	console.log("remote: " + req.connection.remoteAddress);
+	
+	if (isAuthenticUser(req))
+	{
+		console.log("Authentic");
+		logger.log("status", `${nameCookie} just logged in`);
+		res.sendFile(process.cwd() + '/lighting.html');
+	} else {
+		logger.log("status", `Failed to authenticate user`);
+		req.url = '/login';
+		app.handle(req, res);
+	}
+
 
 	// require('dns').reverse(req.connection.remoteAddress, function(err, domains) {
 	// 	console.log(domains);
 	// });
-    // res.end(req.headers.host);
-	res.sendFile(process.cwd() + '/lighting.html');
+	// res.end(req.headers.host);
 });
 
 app.get('/on', (req, res) => {
+	
+	if (!isAuthenticUser(req)) {
+		logger.log("status", `Failed to authenticate user`);
+		req.url = '/login';
+		app.handle(req, res);
+		res.send('bad-login');
+		return;
+	}
+
 	tplink.turnOn().then(() => {
-		console.log('On');
-		logger.log("", "On Endpoint", req.connection.remoteAddress);
+		logger.log("", `${nameCookie} hit the on endpoint`, req.connection.remoteAddress);
 		res.send('On');
 	});
 });
 
 app.get('/toggle', (req, res) => {
+
+	if (!isAuthenticUser(req)) {
+		logger.log("status", `Failed to authenticate user`);
+		req.url = '/login';
+		app.handle(req, res);
+		res.send('bad-login');
+		return;
+	}
+
 	tplink.toggle().then(() => {
 		console.log('toggled');
 		res.send('Toggled');
@@ -43,6 +87,15 @@ app.get('/toggle', (req, res) => {
 });
 
 app.get('/off', (req, res) => {
+
+	if (!isAuthenticUser(req)) {
+		logger.log("status", `Failed to authenticate user`);
+		req.url = '/login';
+		app.handle(req, res);
+		res.send('bad-login');
+		return;
+	}
+
 	tplink.turnOff().then(() => {
 		console.log('Off');
 		logger.log("", `Off Endpoint`, req.connection.remoteAddress);
@@ -51,6 +104,15 @@ app.get('/off', (req, res) => {
 });
 
 app.get('/status', (req, res) => {
+
+	if (!isAuthenticUser(req)) {
+		logger.log("status", `Failed to authenticate user`);
+		req.url = '/login';
+		app.handle(req, res);
+		res.send('bad-login');
+		return;
+	}
+
 	tplink.getStatus().then((status) => {
 		res.send(`${status}`);
 	});

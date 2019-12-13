@@ -3,9 +3,11 @@ function submitResults() {
     var name = document.getElementById('name-input').value;
 
     alert(`You said your name is ${name} and your key is ${key}`);
+    document.cookie = `name=${name}; expires=Sat, 1 Dec 2099 12:00:00 UTC; path=/`;
+    document.cookie = `key=${key}; expires=Sat, 1 Dec 2099 12:00:00 UTC; path=/`;
+
+    window.location.href = "/";
 }
-
-
 
 document.addEventListener('readystatechange', event => {
     var key = document.getElementById('key-underline');

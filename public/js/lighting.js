@@ -14,7 +14,11 @@ function turnOn() {
 
 	xhttp.onreadystatechange = function() {
 		if (this.readyState === 4 && this.status === 200) {
-			disableStatusUpdate = false;
+			if (this.responseText === 'bad-login') {
+				window.location.href = "/login";
+			} else {
+				disableStatusUpdate = false;
+			}
 		}
 	};
 	xhttp.open('GET', '/on', true);
@@ -27,7 +31,11 @@ function turnOff() {
 	const xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function() {
 		if (this.readyState === 4 && this.status === 200) {
-			disableStatusUpdate = false;
+			if (this.responseText === 'bad-login') {
+				window.location.href = "/login";
+			} else {
+				disableStatusUpdate = false;
+			}
 		}
 	};
 	xhttp.open('GET', '/off', true);

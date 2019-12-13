@@ -21,13 +21,8 @@ app.use(express.static('public'));
 app.use(cookieParser());
 
 function isAuthenticUser(req) {
-	console.log("Authentic");
 	nameCookie = req.cookies.name;
 	keyCookie = req.cookies.key;
-
-	console.log(nameCookie);
-	console.log(keyCookie);
-	console.log(!nameCookie || !keyCookie);
 
 	if (!nameCookie || !keyCookie)
 		return false;
@@ -38,7 +33,6 @@ app.get('/', (req, res) => {
 	
 	if (isAuthenticUser(req))
 	{
-		console.log("Authentic");
 		logger.log("status", `${nameCookie} just logged in`);
 		res.sendFile(process.cwd() + '/lighting.html');
 	} else {
@@ -46,12 +40,6 @@ app.get('/', (req, res) => {
 		req.url = '/login';
 		app.handle(req, res);
 	}
-
-
-	// require('dns').reverse(req.connection.remoteAddress, function(err, domains) {
-	// 	console.log(domains);
-	// });
-	// res.end(req.headers.host);
 });
 
 app.get('/on', (req, res) => {
@@ -65,7 +53,7 @@ app.get('/on', (req, res) => {
 	}
 
 	tplink.turnOn().then(() => {
-		logger.log("", `${nameCookie} hit the on endpoint`, req.connection.remoteAddress);
+		logger.log("", `${nameCookie} hit the on endpoint`);
 		res.send('On');
 	});
 });
@@ -82,7 +70,7 @@ app.get('/toggle', (req, res) => {
 
 	tplink.toggle().then(() => {
 		console.log('toggled');
-		res.send('Toggled');
+		res.send(`Toggled`);
 	});
 });
 
@@ -98,7 +86,7 @@ app.get('/off', (req, res) => {
 
 	tplink.turnOff().then(() => {
 		console.log('Off');
-		logger.log("", `Off Endpoint`, req.connection.remoteAddress);
+		logger.log("", `${nameCookie} hit the off endpoint`);
 		res.send('Off');
 	});
 });
@@ -126,13 +114,13 @@ app.post('/api', (req, res) => {
 		case 'on':
 			tplink.turnOn().then(() => {
 				res.status(200).send('Lights turned on');
-				logger.log("status", "Lights turned on", req.connection.remoteAddress);
+				logger.log("status", "Lights turned on");
 			});
 			break;
 		case 'off':
 			tplink.turnOff().then(() => {
 				res.status(200).send('Lights turned off');
-				logger.log("status", "Lights turned on", req.connection.remoteAddress);
+				logger.log("status", "Lights turned on");
 			});
 			break;
 		case 'toggle':
@@ -140,13 +128,13 @@ app.post('/api', (req, res) => {
 				.then(() => tplink.getStatus())
 				.then((status) => {
 					res.status(200).send(`Lights turned ${status}`);
-					logger.log("status", `Lights toggled ${status}`, req.connection.remoteAddress);
+					logger.log("status", `Lights toggled ${status}`);
 				});
 			break;
 		case 'status':
 			tplink.getStatus().then(status => {
 				res.status(200).send('Lights status: ' + status);
-				logger.log("status", `Status checked ${status}`, req.connection.remoteAddress);
+				logger.log("status", `Status checked ${status}`);
 			});
 			break;
 		default:

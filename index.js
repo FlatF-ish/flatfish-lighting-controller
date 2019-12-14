@@ -42,6 +42,19 @@ app.get('/', (req, res) => {
 	}
 });
 
+app.get('/timer', (req, res) => {
+	
+	if (isAuthenticUser(req))
+	{
+		logger.log("status", `${nameCookie} just logged in`);
+		res.sendFile(process.cwd() + '/public/timer.html');
+	} else {
+		logger.log("status", `Failed to authenticate user`);
+		req.url = '/login';
+		app.handle(req, res);
+	}
+});
+
 app.get('/on', (req, res) => {
 	
 	if (!isAuthenticUser(req)) {

@@ -38,6 +38,36 @@ body {
     box-sizing: border-box;
     padding: 8px;
     margin-bottom: 4px;
+    opacity: 0;
+
+    animation-name: row-expansion;
+    animation-delay: 0.1s;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+.light-state-icon {
+    display: inline-block;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    margin: 4px;
+    margin-left: 64px;
+    background-color: #63586e;
+    vertical-align: top;
+}
+
+#lightbulb-icon {
+    height: 80%;
+    padding: 10%;
+}
+
+.turn-on {
+    background-color: #7cb54a;
+}
+
+.turn-off {
+    background-color: #c23529;
 }
 
 .day-container {
@@ -150,6 +180,15 @@ body {
     animation-fill-mode: forwards;
     box-shadow: 0 0 16px #d1bee6;
     border-radius: 50%;
+}
+
+@keyFrames row-expansion {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 @keyframes hourglass-rotate-backwards {

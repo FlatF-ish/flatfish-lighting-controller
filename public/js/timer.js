@@ -1,5 +1,6 @@
 var content;
 var container;
+var lightState = true;
 
 document.addEventListener('readystatechange', event => {
 	if (event.target.readyState === 'complete') {
@@ -19,5 +20,20 @@ document.addEventListener('readystatechange', event => {
 
 function addTimerRow() {
     var tableRow = document.importNode(content, true);
+    // tableRow.getElementById
     container.appendChild(tableRow);
+}
+
+function toggleLightButton() {
+    var lightButton = document.getElementById('light-button');
+    console.log(lightState)
+    if(lightState === true) {
+        lightButton.classList.remove('turn-on');
+        lightButton.classList.add('turn-off');
+        lightState = false;
+    } else {
+        lightButton.classList.remove('turn-off');
+        lightButton.classList.add('turn-on');
+        lightState = true;
+    }
 }

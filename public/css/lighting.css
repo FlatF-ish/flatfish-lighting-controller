@@ -95,6 +95,7 @@ body {
     min-height: 80%;
     margin: 2% 10% 6% 10%;
     box-sizing: border-box;
+    position: relative;
 }
 
 .lightbulb-icon-on {
@@ -139,6 +140,54 @@ body {
     animation-delay: 0s;
     animation-duration: 0.5s;
     animation-iteration-count: infinite;
+}
+
+#hourglass-icon {
+    height: 100%;
+
+    animation-name: hourglass-rotate-backwards;
+    animation-delay: 0s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+#hourglass-icon:hover {
+    animation-name: hourglass-rotate-forwards;
+    animation-delay: 0s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    box-shadow: 0 0 16px #d1bee6;
+    border-radius: 50%;
+}
+
+.timer-box {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    height: 60px;
+    width: 60px;
+}
+
+@keyframes hourglass-rotate-backwards {
+    0% {
+        fill: #d1bee6;
+        transform: rotate(180deg);
+    }
+    100% {
+        fill: #63586e;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes hourglass-rotate-forwards {
+    0% {
+        fill: #63586e;
+        transform: rotate(0deg);
+    }
+    100% {
+        fill: #d1bee6;
+        transform: rotate(180deg);
+    }
 }
 
 @keyframes bulb {

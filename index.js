@@ -10,12 +10,6 @@ const cookieParser = require('cookie-parser');
 var nameCookie;
 var keyCookie;
 
-require('dns').reverse("192.168.0.44", function(err, domains) {
-	console.log(domains);
-});
-
-
-
 const app = express();
 app.use(express.static('public'));
 app.use(cookieParser());
@@ -35,19 +29,6 @@ app.get('/', (req, res) => {
 	{
 		logger.log("status", `${nameCookie} just logged in`);
 		res.sendFile(process.cwd() + '/lighting.html');
-	} else {
-		logger.log("status", `Failed to authenticate user`);
-		req.url = '/login';
-		app.handle(req, res);
-	}
-});
-
-app.get('/timer', (req, res) => {
-	
-	if (isAuthenticUser(req))
-	{
-		logger.log("status", `${nameCookie} just logged in`);
-		res.sendFile(process.cwd() + '/public/timer.html');
 	} else {
 		logger.log("status", `Failed to authenticate user`);
 		req.url = '/login';
@@ -173,4 +154,8 @@ app.get('/login', (req, res) => {
 app.get('/console-data', (req, res) => {
 	var content = fs.readFileSync(`${process.cwd()}/logs.txt`);
 	res.send(content);
+});
+
+app.get('/timer', (req, res) => {
+	res.sendFile(process.cwd() + '/public/timer.html');
 });

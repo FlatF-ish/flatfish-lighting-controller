@@ -7,6 +7,10 @@ document.addEventListener('readystatechange', event => {
 	}
 });
 
+function addTimer() {
+	window.location.href = "/timer";
+}
+
 function turnOn() {
 	disableStatusUpdate = true;
 	waitForResponse();

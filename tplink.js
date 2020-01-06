@@ -32,13 +32,13 @@ async function getDevices() {
 
 async function getPlug() {
 	try {
-		hallPlug = await loggedInUser.getHS100('Hall Lights');
+		hallPlug = await loggedInUser.getHS100('Hall');
 	} catch (err) {
 		logger.log("error", `There is a problem with the hall lights:\n${err}`);
 	}
 
 	try {
-		kitchenPlug = await loggedInUser.getHS100('Kitchen Lights');
+		kitchenPlug = await loggedInUser.getHS100('Kitchen');
 	} catch (err) {
 		logger.log("error", `There is a problem with the kitchen lights:\n${err}`);
 	}

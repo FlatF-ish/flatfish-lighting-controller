@@ -163,8 +163,12 @@ async function updatePlugs() {
 
 	if (state) {
 		await turnOn();
+		previousKitchen = true;
+		previousHall = true;
 	} else {
 		await turnOff();
+		previousKitchen = false;
+		previousHall = fales;
 	}
 }
 

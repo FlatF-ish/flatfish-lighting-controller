@@ -88,8 +88,18 @@ async function getStatus() {
 
 async function syncStatus() {
 	checkSetupCompleted();
-	var statusH = await hallPlug.isOn().catch((err) => logger.log("error", `Could not get status for hall:\n${err}`));
-	var statusK = await kitchenPlug.isOn().catch((err) => logger.log("error", `Could not get status for kitchen:\n${err}`));
+
+	// Trying to fix the problems around status issues
+	var statusH = await hallPlug.isOn().catch((err) =>
+	{
+		counter = 0;
+		logger.log("error", `Could not get status for hall:\n${err}`);
+	});
+
+	var statusK = await kitchenPlug.isOn().catch((err) => {
+		counter = 0;
+		logger.log("error", `Could not get status for kitchen:\n${err}`);
+	});
 
 	if(statusH === statusK) {
 		counter = 0;
@@ -114,15 +124,28 @@ async function syncStatus() {
 
 async function whichPlugChangedState() {
 	checkSetupCompleted();
-	var statusH = await hallPlug.isOn().catch((err) => logger.log("error", `Could not get status for hall:\n${err}`));;
-	var statusK = await kitchenPlug.isOn().catch((err) => logger.log("error", `Could not get status for kitchen:\n${err}`));;
+
+	// Trying to fix the problems around status issues
+	var statusH = await hallPlug.isOn().catch((err) =>
+	{
+		counter = 0;
+		logger.log("error", `Could not get status for hall:\n${err}`);
+	});
+
+	var statusK = await kitchenPlug.isOn().catch((err) => {
+		counter = 0;
+		logger.log("error", `Could not get status for kitchen:\n${err}`);
+	});
+
 	if (!(previousHall === statusH)){
 		previousHall = statusH;
+		logger.log("status", `Hall plug changed`)
 		return 'hall'
 	}
 	else if (!(previousKitchen === statusK))
 	{	
 		previousKitchen = statusK;
+		logger.log("status", `Kitchen plug changed`)
 		return 'kitchen'
 	}
 }

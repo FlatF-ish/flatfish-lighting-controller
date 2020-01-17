@@ -140,6 +140,9 @@ async function whichPlugChangedState() {
 	});
 	
 	
+	console.log("H" + statusH);
+	console.log("K" + statusK);
+
 	statusHbool = (statusH == 'on' ? true : false);
 	statusKbool = (statusK == 'on' ? true : false);
 

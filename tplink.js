@@ -243,8 +243,8 @@ async function setup() {
 	ready = true;
 	logger.log("status", "Set up complete");
 	try {
-	previousHall = (await hallPlug.isOn()? 'on':'off');
-	previousKitchen = (await kitchenPlug.isOn()? 'on':'off');
+	previousHall = (await hallPlug.isOn() === 'on' ? true: false);
+	previousKitchen = (await kitchenPlug.isOn() === 'on' ? true : false);
 	} catch (err) {
 		logger.log("error", `This is embarrasing - could not get status of the plugs at setup\n ${err}`);
 	}

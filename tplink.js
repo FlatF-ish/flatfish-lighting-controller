@@ -138,6 +138,11 @@ async function whichPlugChangedState() {
 		logger.log("error", `Could not get status for kitchen:\n${err}`);
 	});
 
+	console.log(previousHall);
+	console.log(statusH);
+	console.log(previousKitchen);
+	console.log(statusK);
+
 	if (!(previousHall === statusH)){
 		previousHall = statusH;
 		logger.log("status", `Hall plug changed`)
@@ -169,7 +174,7 @@ async function updatePlugs() {
 	} else {
 		await turnOff();
 		previousKitchen = false;
-		previousHall = fales;
+		previousHall = false;
 	}
 }
 

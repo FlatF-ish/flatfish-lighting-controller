@@ -108,7 +108,7 @@ async function syncStatus() {
 	}
 
 	if (counter > 3) {
-		// updatePlugs();
+		updatePlugs();
 		logger.log("warning", "Out of sync");
 		counter = 0;
 	}

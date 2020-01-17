@@ -149,12 +149,14 @@ async function whichPlugChangedState() {
 	console.log(statusKbool);
 
 	if (!(previousHall === statusHbool)){
+		console.log("Hall changed");
 		previousHall = statusHbool;
 		logger.log("status", `Hall plug changed`)
 		return 'hall'
 	}
 	else if (!(previousKitchen === statusKbool))
 	{	
+		console.log("Kitchen changed");
 		previousKitchen = statusKbool;
 		logger.log("status", `Kitchen plug changed`)
 		return 'kitchen'

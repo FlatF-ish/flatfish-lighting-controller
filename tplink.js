@@ -147,20 +147,20 @@ async function whichPlugChangedState() {
 	// statusKbool = (statusK == 'on' ? true : false);
 
 	console.log(previousHall);
-	console.log(statusHbool);
+	console.log(statusH);
 	console.log(previousKitchen);
-	console.log(statusKbool);
+	console.log(statusK);
 
-	if (!(previousHall === statusHbool)){
+	if (!(previousHall === statusH)){
 		console.log("Hall changed");
-		previousHall = statusHbool;
+		previousHall = statusH;
 		logger.log("status", `Hall plug changed`)
 		return 'hall'
 	}
-	else if (!(previousKitchen === statusKbool))
+	else if (!(previousKitchen === statusK))
 	{	
 		console.log("Kitchen changed");
-		previousKitchen = statusKbool;
+		previousKitchen = statusK;
 		logger.log("status", `Kitchen plug changed`)
 		return 'kitchen'
 	}

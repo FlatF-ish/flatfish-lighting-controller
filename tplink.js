@@ -113,7 +113,7 @@ async function syncStatus() {
 		counter = 0;
 	}
 
-	return statusH == 'on' ? true : false;
+	// return statusH == 'on' ? true : false;
 }
 
 // async function getSecondaryStatus() {
@@ -143,8 +143,8 @@ async function whichPlugChangedState() {
 	console.log("H" + statusH);
 	console.log("K" + statusK);
 
-	statusHbool = (statusH == 'on' ? true : false);
-	statusKbool = (statusK == 'on' ? true : false);
+	// statusHbool = (statusH == 'on' ? true : false);
+	// statusKbool = (statusK == 'on' ? true : false);
 
 	console.log(previousHall);
 	console.log(statusHbool);
@@ -250,8 +250,8 @@ async function setup() {
 	ready = true;
 	logger.log("status", "Set up complete");
 	try {
-	previousHall = (await hallPlug.isOn() === 'on' ? true: false);
-	previousKitchen = (await kitchenPlug.isOn() === 'on' ? true : false);
+	previousHall = (await hallPlug.isOn());
+	previousKitchen = (await kitchenPlug.isOn());
 	} catch (err) {
 		logger.log("error", `This is embarrasing - could not get status of the plugs at setup\n ${err}`);
 	}

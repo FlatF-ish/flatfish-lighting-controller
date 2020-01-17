@@ -174,6 +174,8 @@ async function updatePlugs() {
 		var state = await kitchenPlug.isOn().catch((err) => logger.log("error", `Could not get status for kitchen:\n${err}`));
 	}
 
+	console.log(`State ${state}`);
+
 	if (state) {
 		await turnOn();
 		previousKitchen = true;

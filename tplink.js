@@ -16,12 +16,6 @@ var ready = false;
 
 var counter = 0;
 
-
-var readyToSync = false;
-
-var kitchenStatus = 'off';
-var hallStatus = 'off';
-
 async function logUserIn() {
 	loggedInUser = await login(myUser, myPass, token).catch((err) => logger.log("error", `Failed to login:\n${err}`));
 }
@@ -89,7 +83,6 @@ async function getStatus() {
 async function syncStatus() {
 	checkSetupCompleted();
 
-	// Trying to fix the problems around status issues
 	var statusH = await hallPlug.isOn().catch((err) =>
 	{
 		counter = 0;
@@ -112,54 +105,30 @@ async function syncStatus() {
 		logger.log("warning", "Out of sync");
 		counter = 0;
 	}
-
-	// return statusH == 'on' ? true : false;
 }
-
-// async function getSecondaryStatus() {
-// 	checkSetupCompleted();
-// 	var status = await kitchenPlug.isOn();
-// 	return status ? 'on' : 'off';
-// }
 
 
 async function whichPlugChangedState() {
 	checkSetupCompleted();
 
-	// Trying to fix the problems around status issues
 	var statusH = await hallPlug.isOn().catch((err) =>
 	{
 		counter = 0;
 		logger.log("error", `Could not get status for hall:\n${err}`);
 	});
-
 	
 	var statusK = await kitchenPlug.isOn().catch((err) => {
 		counter = 0;
 		logger.log("error", `Could not get status for kitchen:\n${err}`);
 	});
 	
-	
-	console.log("H" + statusH);
-	console.log("K" + statusK);
-
-	// statusHbool = (statusH == 'on' ? true : false);
-	// statusKbool = (statusK == 'on' ? true : false);
-
-	console.log(previousHall);
-	console.log(statusH);
-	console.log(previousKitchen);
-	console.log(statusK);
-
 	if (!(previousHall === statusH)){
-		console.log("Hall changed");
 		previousHall = statusH;
 		logger.log("status", `Hall plug changed`)
 		return 'hall'
 	}
 	else if (!(previousKitchen === statusK))
 	{	
-		console.log("Kitchen changed");
 		previousKitchen = statusK;
 		logger.log("status", `Kitchen plug changed`)
 		return 'kitchen'
@@ -179,66 +148,17 @@ async function updatePlugs() {
 
 	console.log(`State ${state}`);
 
-	if (state) {
+	if (state === true) {
 		await turnOn();
 		previousKitchen = true;
 		previousHall = true;
-	} else {
+	} else if (state === false){
 		await turnOff();
 		previousKitchen = false;
 		previousHall = false;
 	}
 }
 
-// This could be cool later - but not yet
-// async function syncPlugs() {
-// 	if(readyToSync) {
-// 		readyToSync = false;
-// 		var newHallStatus = await getStatus();
-// 		var newKitchenStatus = await getSecondaryStatus();
-
-// 		console.log("Hall old " + hallStatus);
-// 		console.log("Kitchen old " + kitchenStatus);
-// 		console.log("Hall new " + newHallStatus);
-// 		console.log("Kitchen new " + newKitchenStatus);
-
-// 		if (newHallStatus === newKitchenStatus && newHallStatus === hallStatus && newKitchenStatus === kitchenStatus)
-// 		{
-// 			console.log("No change required");
-// 			readyToSync = true;
-// 		} else if (!(newHallStatus === hallStatus)) {
-// 			console.log("Hall changed, need to change kitchen");
-// 			hallStatus = newHallStatus;
-// 			kitchenStatus = newHallStatus;
-// 			newKitchenStatus = newHallStatus;
-// 			await synchroniseLighting(hallStatus)
-// 			readyToSync = true;
-// 		} else {
-// 			console.log("Kitchen changed, need to change hall");
-// 			kitchenStatus = newKitchenStatus;
-// 			hallStatus = newKitchenStatus;
-// 			newHallStatus = newKitchenStatus;
-// 			await synchroniseLighting(kitchenStatus);
-// 			readyToSync = true;
-// 		}
-// 	}
-// }
-
-
-// In future this could be the magic required to sync plugs
-// async function synchroniseLighting(state) {
-// 	if (state === 'on')
-// 	{
-// 		await hallPlug.powerOn();
-// 		await kitchenPlug.powerOn();
-// 		console.log("Both on");
-// 	} else {
-// 		await hallPlug.powerOff();
-// 		await kitchenPlug.powerOff();
-// 		console.log("Both off");
-
-// 	}
-// }
 
 async function setup() {
 	logger.log("warning", "Server restarted, getting things ready");
@@ -250,15 +170,11 @@ async function setup() {
 	ready = true;
 	logger.log("status", "Set up complete");
 	try {
-	previousHall = (await hallPlug.isOn());
-	previousKitchen = (await kitchenPlug.isOn());
+		previousHall = await hallPlug.isOn();
+		previousKitchen = await kitchenPlug.isOn();
 	} catch (err) {
 		logger.log("error", `This is embarrasing - could not get status of the plugs at setup\n ${err}`);
 	}
-	// Could be used later for some cool stuff!
-	// hallStatus = await getStatus();
-	// kitchenStatus = await getSecondaryStatus();
-	// readyToSync = true;
 	logger.log("status", "Initial synchronisation");
 	setInterval(syncStatus, 1000);
 }

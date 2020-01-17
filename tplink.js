@@ -113,7 +113,7 @@ async function syncStatus() {
 		counter = 0;
 	}
 
-	return statusH ? 'on' : 'off';
+	return statusH == 'on' ? true : false;
 }
 
 // async function getSecondaryStatus() {
@@ -133,24 +133,29 @@ async function whichPlugChangedState() {
 		logger.log("error", `Could not get status for hall:\n${err}`);
 	});
 
+	
 	var statusK = await kitchenPlug.isOn().catch((err) => {
 		counter = 0;
 		logger.log("error", `Could not get status for kitchen:\n${err}`);
 	});
+	
+	
+	statusHbool = (statusH == 'on' ? true : false);
+	statusKbool = (statusK == 'on' ? true : false);
 
 	console.log(previousHall);
-	console.log(statusH);
+	console.log(statusHbool);
 	console.log(previousKitchen);
-	console.log(statusK);
+	console.log(statusKbool);
 
-	if (!(previousHall === statusH)){
-		previousHall = statusH;
+	if (!(previousHall === statusHbool)){
+		previousHall = statusHbool;
 		logger.log("status", `Hall plug changed`)
 		return 'hall'
 	}
-	else if (!(previousKitchen === statusK))
+	else if (!(previousKitchen === statusKbool))
 	{	
-		previousKitchen = statusK;
+		previousKitchen = statusKbool;
 		logger.log("status", `Kitchen plug changed`)
 		return 'kitchen'
 	}

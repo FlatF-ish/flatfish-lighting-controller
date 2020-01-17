@@ -14,8 +14,6 @@ var hallPlug;
 var kitchenPlug;
 var ready = false;
 
-var counter = 0;
-
 async function logUserIn() {
 	loggedInUser = await login(myUser, myPass, token).catch((err) => logger.log("error", `Failed to login:\n${err}`));
 }
@@ -78,33 +76,6 @@ async function getStatus() {
 	var statusH = await hallPlug.isOn().catch((err) => logger.log("error", `Could not get status for hall:\n${err}`));
 
 	return statusH ? 'on' : 'off';
-}
-
-async function syncStatus() {
-	checkSetupCompleted();
-
-	var statusH = await hallPlug.isOn().catch((err) =>
-	{
-		counter = 0;
-		logger.log("error", `Could not get status for hall:\n${err}`);
-	});
-
-	var statusK = await kitchenPlug.isOn().catch((err) => {
-		counter = 0;
-		logger.log("error", `Could not get status for kitchen:\n${err}`);
-	});
-
-	if(statusH === statusK) {
-		counter = 0;
-	} else {
-		counter ++;
-	}
-
-	if (counter > 3) {
-		updatePlugs();
-		logger.log("warning", "Out of sync");
-		counter = 0;
-	}
 }
 
 

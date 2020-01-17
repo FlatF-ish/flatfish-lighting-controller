@@ -133,11 +133,15 @@ async function whichPlugChangedState() {
 		logger.log("status", `Kitchen plug changed`)
 		return 'kitchen'
 	}
+	return 'neither'
 }
 
 async function updatePlugs() {
 	plug = await whichPlugChangedState();
-	
+
+	if (plug === 'neither')
+		return;
+
 	if (plug === 'hall') {
 		var state = await hallPlug.isOn().catch((err) => logger.log("error", `Could not get status for hall:\n${err}`));
 	}
@@ -145,8 +149,6 @@ async function updatePlugs() {
 	if (plug === 'kitchen'){
 		var state = await kitchenPlug.isOn().catch((err) => logger.log("error", `Could not get status for kitchen:\n${err}`));
 	}
-
-	console.log(`State ${state}`);
 
 	if (state === true) {
 		await turnOn();
@@ -156,6 +158,8 @@ async function updatePlugs() {
 		await turnOff();
 		previousKitchen = false;
 		previousHall = false;
+	} else {
+		logger.log('error', 'Could not get status not synced');
 	}
 }
 
@@ -176,7 +180,7 @@ async function setup() {
 		logger.log("error", `This is embarrasing - could not get status of the plugs at setup\n ${err}`);
 	}
 	logger.log("status", "Initial synchronisation");
-	setInterval(syncStatus, 1000);
+	setInterval(updatePlugs, 1000);
 }
 
 setup();
